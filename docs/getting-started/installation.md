@@ -43,3 +43,10 @@ If you install gcc as suggested, the problem will persist. Therefore, you need t
    sudo apt-get update
    sudo apt-get install build-essential
 ```
+
+### Upgrading the brew installation
+
+To upgrade the K8sGPT brew installation run the following command:
+```bash
+brew upgrade k8sgpt
+```

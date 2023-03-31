@@ -40,3 +40,44 @@ Flags:
 
 Use "k8sgpt [command] --help" for more information about a command.
 ```
+
+## Authenticate with ChatGPT
+
+First, you will need to authenticate with your chosen backend. The backend is the AI provider such as OpenAI's ChatGPT.
+
+[Ensure that you have created an account.]()
+
+Next, generate a token from the backend:
+```
+k8sgpt generate
+```
+
+This will provide you with a URL to generate a token, follow the URL from the commandline to your browser to then generate the token.
+
+![Generate a token on the OpenAI website](../imgs/generate-token.png)
+
+Copy the token for the next step.
+
+Then, authenticate with the following command:
+```
+k8sgpt auth
+```
+
+This will request the token that has just been generated. Paste the token into the commandline.
+
+You should then see the following success message:
+> Enter openai Key: key added
+
+## Analyse your cluster
+
+Ensure that you are connected to a Kubernetes cluster:
+```bash
+kubectl get nodes
+```
+
+Next, you can go ahead an analyse your cluster:
+```bash
+k8sgpt analyse
+```
+
+This will provide you with a list of issues of your Kubernetes cluster.
