@@ -9,7 +9,7 @@ nav:
   - Getting Started: 
       - Overview: index.md
       - Getting Started Guide: getting-started/getting-started.md
-      - Instalaltion: getting-started/installation.md
+      - Installation: getting-started/installation.md
   - Tutorials: tutorials/index.md
   - Reference:
       - CLI: reference/cli/index.md
