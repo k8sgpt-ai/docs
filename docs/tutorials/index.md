@@ -1,3 +1,6 @@
 # Tutorials
 
-This section will provide end-to-end tutorials on specific use cases.
+This section provides
+
+* end-to-end tutorials on specific use cases
+* a collection of user and contributor created content
