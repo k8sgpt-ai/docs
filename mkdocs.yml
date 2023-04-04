@@ -12,7 +12,7 @@ nav:
       - Getting Started Guide: getting-started/getting-started.md
       - Installation: getting-started/installation.md
   - Tutorials: 
-      - Overvoew: tutorials/index.md
+- Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
   - Reference:
       - CLI: reference/cli/index.md
