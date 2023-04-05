@@ -11,7 +11,7 @@ nav:
       - Overview: index.md
       - Getting Started Guide: getting-started/getting-started.md
       - Installation: getting-started/installation.md
-  - Tutorials: 
+  - Tutorials:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
   - Reference:
