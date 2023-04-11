@@ -4,14 +4,15 @@ This page provides further information on installation guidelines.
 
 ## Linux/Mac via brew
 
-**Prerequisites**
+### Prerequisites
 
 Ensure that you have Homebrew installed:
+
 - Homebrew for Mac
 - Homebrew for Linux
 Homebrew for Linux also works on WSL
 
-### Installation 
+### Installation
 
 Install K8sGPT on your machine with the following commands:
 
@@ -21,6 +22,7 @@ brew install k8sgpt
 ```
 
 Verify that K8sGPT is installed correctly:
+
 ```bash
 k8sgpt version
 
@@ -47,6 +49,7 @@ If you install gcc as suggested, the problem will persist. Therefore, you need t
 ### Upgrading the brew installation
 
 To upgrade the K8sGPT brew installation run the following command:
+
 ```bash
 brew upgrade k8sgpt
 ```
