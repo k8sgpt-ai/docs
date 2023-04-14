@@ -17,6 +17,7 @@ nav:
   - Reference:
       - CLI: reference/cli/index.md
       - Contributing Guidelines: reference/contributing/guidelines.md
+      - Privacy: reference/privacy/index.md
   - Explanation: explanation/index.md
 
 theme:
