@@ -1,6 +1,7 @@
 # Getting Started Guide
 
 ## Prerequisites
+
 1. Ensure `k8sgpt` is installed correctly on your environment by following the [installation](./installation.md).
 2. You need to be connected to any Kubernetes cluster.
 
@@ -45,10 +46,11 @@ Use "k8sgpt [command] --help" for more information about a command.
 
 First, you will need to authenticate with your chosen backend. The backend is the AI provider such as OpenAI's ChatGPT.
 
-[Ensure that you have created an account.]()
+[Ensure that you have created an account.](https://chat.openai.com/auth/login)
 
 Next, generate a token from the backend:
-```
+
+```bash
 k8sgpt generate
 ```
 
@@ -59,7 +61,8 @@ This will provide you with a URL to generate a token, follow the URL from the co
 Copy the token for the next step.
 
 Then, authenticate with the following command:
-```
+
+```bash
 k8sgpt auth
 ```
 
@@ -71,11 +74,13 @@ You should then see the following success message:
 ## Analyse your cluster
 
 Ensure that you are connected to a Kubernetes cluster:
+
 ```bash
 kubectl get nodes
 ```
 
 Next, you can go ahead an analyse your cluster:
+
 ```bash
 k8sgpt analyse
 ```
