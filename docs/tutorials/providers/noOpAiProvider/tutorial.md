@@ -8,7 +8,7 @@ The NoOpAiProvider does not acutally perfornm any AI-based operations but simula
 
 An example of the output can be seen below:
 
-<img src="../../../imgs/noopaiprovider-example.png">
+<img src="../../../imgs/noopaiprovider-example.png" alt="noopaiprovider-example">
 
 ## Working with NoOpAiProvider
 
