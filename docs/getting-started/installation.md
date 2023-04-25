@@ -12,78 +12,64 @@ Ensure that you have Homebrew installed:
 - Homebrew for Linux
 Homebrew for Linux also works on WSL
 
-### Installation
+### Honebrew
 
 Install K8sGPT on your machine with the following commands:
-
 ```bash
 brew tap k8sgpt-ai/k8sgpt
 brew install k8sgpt
 ```
+## Other Installation Options
 
-<details>
-  <summary>RPM-based installation (RedHat/CentOS/Fedora)</summary>
+### RPM-based installation (RedHat/CentOS/Fedora)
 
-  **32 bit:**
-  <!---x-release-please-start-version-->
-  ```
-  curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.rpm
-  sudo rpm -ivh k8sgpt_386.rpm
-  ```
-  <!---x-release-please-end-->
+**32 bit:**
 
-  **64 bit:**
- 
-  <!---x-release-please-start-version-->
-  ```
-  curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.rpm
-  sudo rpm -ivh -i k8sgpt_amd64.rpm
-  ```
-  <!---x-release-please-end-->
-</details>
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.rpm
+sudo rpm -ivh k8sgpt_386.rpm
+```
 
-<details>
-  <summary>DEB-based installation (Ubuntu/Debian)</summary>
+**64 bit:**
+
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.rpm
+sudo rpm -ivh -i k8sgpt_amd64.rpm
+```
+
+### DEB-based installation (Ubuntu/Debian)
 
   **32 bit:**
-  <!---x-release-please-start-version-->
-  ```
-  curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.deb
-  sudo dpkg -i k8sgpt_386.deb
-  ```
-  <!---x-release-please-end-->
-  **64 bit:**
- 
-  <!---x-release-please-start-version-->
-  ```
-  curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.deb
-  sudo dpkg -i k8sgpt_amd64.deb
-  ```
-  <!---x-release-please-end-->
-</details>
 
-<details>
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.deb
+sudo dpkg -i k8sgpt_386.deb
+```
 
-  <summary>APK-based installation (Alpine)</summary>
+**64 bit:**
+
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.deb
+sudo dpkg -i k8sgpt_amd64.deb
+```
+
+### APK-based installation (Alpine)
 
   **32 bit:**
-  <!---x-release-please-start-version-->
-  ```
-  curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.apk
-  apk add k8sgpt_386.apk
-  ```
-  <!---x-release-please-end-->
-  **64 bit:**
-  <!---x-release-please-start-version-->
-  ```
-  curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.apk
-  apk add k8sgpt_amd64.apk
-  ```
-  <!---x-release-please-end-->x
-</details>
 
-<details>
-  <summary>Failing Installation on WSL or Linux (missing gcc)</summary>
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.apk
+apk add k8sgpt_386.apk
+```
+
+**64 bit:**
+
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.apk
+apk add k8sgpt_amd64.apk
+```
+
+### Failing Installation on WSL or Linux (missing gcc)
   When installing Homebrew on WSL or Linux, you may encounter the following error:
 
   ```
@@ -92,11 +78,10 @@ brew install k8sgpt
   ```
 
 If you install gcc as suggested, the problem will persist. Therefore, you need to install the build-essential package.
-  ```
+  ```bash
      sudo apt-get update
      sudo apt-get install build-essential
   ```
-</details>
 
 ## Windows
 
@@ -114,8 +99,9 @@ k8sgpt version
 k8sgpt version 0.1.3
 ```
 
-### Common Issues
+## Common Issues
 
+### Windows WSL
 Failing Installation on WSL or Linux (missing gcc)
 When installing Homebrew on WSL or Linux, you may encounter the following error:
 
@@ -131,7 +117,25 @@ If you install gcc as suggested, the problem will persist. Therefore, you need t
    sudo apt-get install build-essential
 ```
 
-### Upgrading the brew installation
+## Running K8sGPT through a container 
+
+If you are running K8sGPT through a container, the CLI will not be able to open the website for the OpenAI token.
+
+You can find the latest container image for K8sGPT in the packages of the GitHub organisation: [Link](https://github.com/k8sgpt-ai/k8sgpt/pkgs/container/k8sgpt)
+
+A volume can then be mounted to the image through e.g. [Docker Compose](https://docs.docker.com/storage/volumes/).
+Below is an example:
+
+```bash
+version: '2'
+services:
+ k8sgpt:
+   image: ghcr.io/k8sgpt-ai/k8sgpt:dev-202304011623
+   volumes:
+     -  /home/$(whoami)/.k8sgpt.yaml:/home/root/.k8sgpt.yaml
+```
+
+## Upgrading the brew installation
 
 To upgrade the K8sGPT brew installation run the following command:
 

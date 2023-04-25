@@ -15,7 +15,11 @@ nav:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
   - Reference:
-      - CLI: reference/cli/index.md
+      - CLI:
+          - Overview: reference/cli/index.md
+          - Integration and Filter: reference/cli/filters.md
+      - Operator:
+          - Overview: reference/operator/index.md
       - Contributing Guidelines: reference/contributing/guidelines.md
       - Privacy: reference/privacy/index.md
   - Explanation: explanation/index.md
