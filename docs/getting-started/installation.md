@@ -58,7 +58,7 @@ sudo dpkg -i k8sgpt_amd64.deb
   **32 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.apk
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.7/k8sgpt_386.apk
 apk add k8sgpt_386.apk
 ```
 
