@@ -12,7 +12,7 @@ Ensure that you have Homebrew installed:
 - Homebrew for Linux
 Homebrew for Linux also works on WSL
 
-### Honebrew
+### Homebrew
 
 Install K8sGPT on your machine with the following commands:
 ```bash
