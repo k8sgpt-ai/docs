@@ -96,7 +96,7 @@ Verify that K8sGPT is installed correctly:
 ```bash
 k8sgpt version
 
-k8sgpt version 0.1.3
+k8sgpt version 0.2.7
 ```
 
 ## Common Issues
