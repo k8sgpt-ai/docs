@@ -1,6 +1,12 @@
 # Using Integration and Filters in K8sGPT
 
-K8sGPT offers integration with other tools. The first one that has been added is Trivy.
+K8sGPT offers integration with other tools. Once an integration is added to K8sGPT, it is possible to use its resources as additional filters.
+
+* Filters are a way of selecting which resources you wish to be part of your default analysis.
+* Integrations are a way to add in additional resources to the filter list.
+
+
+The first integration that has been added is Trivy.
 [Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scnaner, maintained by Aqua Security.
 
 Use the following command to access all K8sGPT CLI options related to integrations:
