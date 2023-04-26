@@ -27,7 +27,7 @@ nav:
 theme:
   name: material
   anguage: "en"
-  logo: imgs/logo-white.png
+  logo: imgs/icon-logo-01.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
