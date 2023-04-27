@@ -51,7 +51,16 @@ spec:
 EOF
 ```
 
-As you can see above many of the settings are configurable and `AI` can either be turned on or off easily.
+### Regarding out of cluster traffic to AI backends
+
+In the above example `enableAI` is set to `true`.
+This option allows the cluster deployment to use the `backend` to filter and improve the responses to the user.
+Those responses will appear as `details` within the `Result` custom resources that are created.
+
+The default backend in this example is [OpenAI](https://openai.com/) and allows for additional details to be generated and solutions provided for issues.
+If you wish to disable out-of-cluster communication and any Artifical Intelligence processing through models, simply set `enableAI` to `false`.
+
+_It should also be noted that `localai` is supported and in-cluster models will be supported in the near future_
 
 ## Viewing the results
 
