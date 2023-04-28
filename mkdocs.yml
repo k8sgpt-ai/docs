@@ -16,9 +16,12 @@ nav:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
   - Reference:
-      - CLI: reference/cli/index.md
-      - Contributing Guidelines: reference/contributing/guidelines.md
-      - Privacy: reference/privacy/index.md
+      - CLI: 
+        - Overview: reference/cli/index.md
+      - Guidelines & Community:
+        - Guidelines: reference/guidelines/guidelines.md
+        - Community: reference/guidelines/community.md
+        - Privacy: reference/guidelines/privacy.md
   - Explanation: explanation/index.md
 
 theme:
