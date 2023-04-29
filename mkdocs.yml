@@ -21,8 +21,10 @@ nav:
           - Integration and Filter: reference/cli/filters.md
       - Operator:
           - Overview: reference/operator/overview.md
-      - Contributing Guidelines: reference/contributing/guidelines.md
-      - Privacy: reference/privacy/index.md
+      - Guidelines & Community:
+          - Guidelines: reference/guidelines/guidelines.md
+          - Community: reference/guidelines/community.md
+          - Privacy: reference/guidelines/privacy.md
   - Explanation: explanation/index.md
 
 theme:
