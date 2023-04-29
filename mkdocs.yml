@@ -20,7 +20,7 @@ nav:
           - Overview: reference/cli/index.md
           - Integration and Filter: reference/cli/filters.md
       - Operator:
-          - Overview: reference/operator/index.md
+          - Overview: reference/operator/overview.md
       - Contributing Guidelines: reference/contributing/guidelines.md
       - Privacy: reference/privacy/index.md
   - Explanation: explanation/index.md
