@@ -2,7 +2,7 @@
 
 This section provides an overview of the different `k8sgpt` CLI commands.
 
-**Prerequisits**
+**Prerequisites**
 * You need to be connected to a Kubernetes cluster, K8sGPT will access it through your kubeconfig.
 * [Signed-up to OpenAI ChatGPT](https://openai.com/)
 * Have the [K8sGPT CLI installed](../../getting-started/installation.md)

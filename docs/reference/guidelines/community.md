@@ -1,6 +1,6 @@
 # Community Information
 
-All community related information are kept in a separate respository from the docs.
+All community related information are kept in a separate repository from the docs.
 
 Link to the repository: [k8sgpt-ai/community](https://github.com/k8sgpt-ai/community)
 
