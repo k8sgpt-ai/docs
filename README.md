@@ -31,4 +31,4 @@ make mkdocs-serve
 
 ## Contributing
 This documentation follows the [Diataxis](https://diataxis.fr/) framework.
-If you are proposing completely new content to the documentation, please familiarise yourself with the framwork first.
+If you are proposing completely new content to the documentation, please familiarise yourself with the framework first.

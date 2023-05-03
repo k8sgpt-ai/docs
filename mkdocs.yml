@@ -29,7 +29,7 @@ nav:
 
 theme:
   name: material
-  anguage: "en"
+  language: "en"
   logo: imgs/icon-logo-01.svg
   features:
     - navigation.tabs
