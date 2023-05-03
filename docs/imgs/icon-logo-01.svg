@@ -1,42 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="svg_document" data-name="svg document" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 354.22468 355">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #3dc7f4;
-        stroke-width: 7px;
-      }
-
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
-        stroke: #000;
-      }
-
-      .cls-2 {
-        fill: #bd3026;
-        stroke-width: 15px;
-      }
-
-      .cls-3 {
-        fill: #70ccda;
-      }
-
-      .cls-3, .cls-4 {
-        stroke-width: 6px;
-      }
-
-      .cls-4 {
-        fill: #4db748;
-      }
-
-      .cls-5 {
-        fill: #fff;
-        stroke-width: 9px;
-      }
-    </style>
-  </defs>
-  <circle id="circle1" class="cls-2" cx="174" cy="178" r="136"/>
-  <ellipse id="circle4" class="cls-4" cx="162.26111" cy="182.3952" rx="116" ry="114.90282"/>
-  <ellipse id="circle4-2" data-name="circle4" class="cls-3" cx="142.12273" cy="185.51733" rx="90.62273" ry="94.37787"/>
-  <circle id="circle3" class="cls-1" cx="116.5" cy="182.3952" r="65"/>
-  <ellipse id="circle5" class="cls-5" cx="84" cy="182.3952" rx="32.5" ry="33.25"/>
+<svg width="311" height="306" viewBox="0 0 311 306" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M150 289C225.111 289 286 228.111 286 153C286 77.8893 225.111 17 150 17C74.8893 17 14 77.8893 14 153C14 228.111 74.8893 289 150 289Z" fill="#31CEE8" stroke="black" stroke-width="5"/>
+<path d="M138.261 272.298C202.326 272.298 254.261 220.854 254.261 157.395C254.261 93.9361 202.326 42.4924 138.261 42.4924C74.1961 42.4924 22.2611 93.9361 22.2611 157.395C22.2611 220.854 74.1961 272.298 138.261 272.298Z" fill="#33A5F2" stroke="black" stroke-width="4"/>
+<path d="M118.123 254.895C168.172 254.895 208.745 212.641 208.745 160.517C208.745 108.394 168.172 66.1395 118.123 66.1395C68.0732 66.1395 27.5 108.394 27.5 160.517C27.5 212.641 68.0732 254.895 118.123 254.895Z" fill="#3A71DC" stroke="black" stroke-width="5"/>
+<path d="M92.5 222.395C128.399 222.395 157.5 193.294 157.5 157.395C157.5 121.497 128.399 92.3952 92.5 92.3952C56.6015 92.3952 27.5 121.497 27.5 157.395C27.5 193.294 56.6015 222.395 92.5 222.395Z" fill="#3340F2" stroke="black" stroke-width="5"/>
+<path d="M60 190.645C77.9493 190.645 92.5 175.759 92.5 157.395C92.5 139.032 77.9493 124.145 60 124.145C42.0507 124.145 27.5 139.032 27.5 157.395C27.5 175.759 42.0507 190.645 60 190.645Z" fill="white" stroke="black" stroke-width="5"/>
 </svg>
