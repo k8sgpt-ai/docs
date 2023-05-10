@@ -19,10 +19,9 @@ This will install the Operator into the cluster, which will await a `K8sGPT` res
 ## Deploying an OpenAI secret
 
 Whilst there are multiple backends supported ( OpenAI, Azure OpenAI and Local ), in this example we'll use OpenAI.
+Whatever backend you are using, you need to make sure to have a secret that works with the backend.
 
-This means you will need to install your token as a secret into the cluster.
-
-For example:
+For instance, this means you will need to install your OpenAI token as a secret into the cluster:
 
 ```bash
 kubectl create secret generic k8sgpt-sample-secret --from-literal=openai-api-key=$OPENAI_TOKEN -n default

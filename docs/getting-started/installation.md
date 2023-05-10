@@ -69,20 +69,6 @@ curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd
 apk add k8sgpt_amd64.apk
 ```
 
-### Failing Installation on WSL or Linux (missing gcc)
-  When installing Homebrew on WSL or Linux, you may encounter the following error:
-
-  ```
-  ==> Installing k8sgpt from k8sgpt-ai/k8sgpt Error: The following formula cannot be installed from a bottle and must be 
-  built from the source. k8sgpt Install Clang or run brew install gcc.
-  ```
-
-If you install gcc as suggested, the problem will persist. Therefore, you need to install the build-essential package.
-  ```bash
-     sudo apt-get update
-     sudo apt-get install build-essential
-  ```
-
 ## Windows
 
 * Download the latest Windows binaries of **k8sgpt** from the [Release](https://github.com/k8sgpt-ai/k8sgpt/releases) 
@@ -117,6 +103,20 @@ If you install gcc as suggested, the problem will persist. Therefore, you need t
    sudo apt-get install build-essential
 ```
 
+### Failing Installation on WSL or Linux (missing gcc)
+  When installing Homebrew on WSL or Linux, you may encounter the following error:
+
+  ```
+  ==> Installing k8sgpt from k8sgpt-ai/k8sgpt Error: The following formula cannot be installed from a bottle and must be 
+  built from the source. k8sgpt Install Clang or run brew install gcc.
+  ```
+
+If you install gcc as suggested, the problem will persist. Therefore, you need to install the build-essential package.
+  ```bash
+     sudo apt-get update
+     sudo apt-get install build-essential
+  ```
+
 ## Running K8sGPT through a container 
 
 If you are running K8sGPT through a container, the CLI will not be able to open the website for the OpenAI token.
@@ -134,6 +134,11 @@ services:
    volumes:
      -  /home/$(whoami)/.k8sgpt.yaml:/home/root/.k8sgpt.yaml
 ```
+
+## Installing the K8sGPT Operator Helm Chart
+
+K8sGPT can be installed as an Operator inside the cluster. 
+For further information, see the [K8sGPT Operator](in-cluster-operator.md) documentation.
 
 ## Upgrading the brew installation
 
