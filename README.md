@@ -31,4 +31,6 @@ make mkdocs-serve
 
 ## Contributing
 This documentation follows the [Diataxis](https://diataxis.fr/) framework.
-If you are proposing completely new content to the documentation, please familiarise yourself with the framework first.
+If you are proposing completely new content to the documentation, please familiarise yourself with the framework first. The different directories in the documentation correspond to sections explored in the framework.
+
+The contribution guidelines to the documentation are the same as for the main project: [K8sGPT contributing guidelines](https://github.com/k8sgpt-ai/k8sgpt/blob/main/CONTRIBUTING.md)
