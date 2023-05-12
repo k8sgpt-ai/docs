@@ -18,7 +18,6 @@ You can view the different command options through
 
 ```bash
 k8sgpt --help
-
 Kubernetes debugging powered by AI
 
 Usage:
@@ -28,16 +27,18 @@ Available Commands:
   analyze     This command will find problems within your Kubernetes cluster
   auth        Authenticate with your chosen backend
   completion  Generate the autocompletion script for the specified shell
+  filters     Manage filters for analyzing Kubernetes resources
   generate    Generate Key for your chosen backend (opens browser)
   help        Help about any command
+  integration Intergrate another tool into K8sGPT
+  serve       Runs k8sgpt as a server
   version     Print the version number of k8sgpt
 
 Flags:
-      --config string       config file (default is $HOME/.k8sgpt.yaml)
-  -h, --help                help for k8sgpt
-      --kubeconfig string   Path to a kubeconfig. Only required if out-of-cluster.
-      --master string       The address of the Kubernetes API server. Overrides any value in kubeconfig. Only required if out-of-cluster.
-  -t, --toggle              Help message for toggle
+      --config string        config file (default is $HOME/.k8sgpt.yaml)
+  -h, --help                 help for k8sgpt
+      --kubeconfig string    Path to a kubeconfig. Only required if out-of-cluster.
+      --kubecontext string   Kubernetes context to use. Only required if out-of-cluster.
 
 Use "k8sgpt [command] --help" for more information about a command.
 ```

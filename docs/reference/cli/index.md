@@ -3,92 +3,90 @@
 This section provides an overview of the different `k8sgpt` CLI commands.
 
 **Prerequisites**
+
 * You need to be connected to a Kubernetes cluster, K8sGPT will access it through your kubeconfig.
 * [Signed-up to OpenAI ChatGPT](https://openai.com/)
 * Have the [K8sGPT CLI installed](../../getting-started/installation.md)
 
 ## Commands
 
-### Generate
+_Run a scan with the default analyzers_
 
-Command:
-```bash
+```
 k8sgpt generate
+k8sgpt auth new
+k8sgpt analyze --explain
 ```
 
-This command will provide you with a URL to OpenAI to generate an access token.
-### Auth     
+_Filter on resource_
 
-Command:
-```bash
-k8sgpt auth
+```
+k8sgpt analyze --explain --filter=Service
 ```
 
-This command authenticates you with your chosen backend. Provide the access token generated through the `generate` command here.
-
-### Analyze     
-
-Command:
-```bash
-k8sgpt analyse
+_Filter by namespace_
+```
+k8sgpt analyze --explain --filter=Pod --namespace=default
 ```
 
-This command will find problems within your Kubernetes cluster.
+_Output to JSON_
 
-### Completion
-
-Command:
-```bash
-k8sgpt completion
+```
+k8sgpt analyze --explain --filter=Service --output=json
 ```
 
-Generate the autocompletion script for the specified shell.
+_Anonymize during explain_
 
-### Help
-
-Command:
-```bash
-k8sgpt help
+```
+k8sgpt analyze --explain --filter=Service --output=json --anonymize
 ```
 
-Provides you with the different command options in the CLI.
-### Version
+## Additional commands
 
-Command:
-```bash
-k8sgpt version
+_List configured backends_
+
+```
+k8sgpt auth list
 ```
 
-Prints the K8sGPT version you are using.
+_Remove configured backends_
 
-## Flags
-
-### --config
-
-Define the path to your k8sgpt configuration file:
-```bash
---config string
+```
+k8sgpt auth remove --backend $MY_BACKEND
 ```
 
-The default is located at `$HOME/.k8sgpt.yaml`
+_List integrations_
 
-### --help
-
-Access more information on the different commands:
-```bash
-  -h, --help
+```
+k8sgpt integrations list
 ```
 
-### --kubeconfig
+_Activate integrations_
 
-Provide the Path to your KubeConfig:
-```bash
-      --kubeconfig string
+```
+k8sgpt integrations activate [integration(s)]
 ```
 
-### --kubecontext
+_Use integration_
 
-You can be connected to multiple Kubernetes context. To specify the Kubernetes context, use the following flag:
-```bash
---kubecontext string 
+```
+k8sgpt analyze --filter=[integration(s)]
+```
+
+_Deactivate integrations_
+
+```
+k8sgpt integrations deactivate [integration(s)]
+```
+
+_Serve mode_
+
+```
+k8sgpt serve
+```
+
+_Analysis with serve mode_
+
+```
+curl -X GET "http://localhost:8080/analyze?namespace=k8sgpt&explain=false"
 ```
