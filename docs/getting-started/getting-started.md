@@ -30,7 +30,7 @@ Available Commands:
   filters     Manage filters for analyzing Kubernetes resources
   generate    Generate Key for your chosen backend (opens browser)
   help        Help about any command
-  integration Intergrate another tool into K8sGPT
+  integration Integrate another tool into K8sGPT
   serve       Runs k8sgpt as a server
   version     Print the version number of k8sgpt
 
