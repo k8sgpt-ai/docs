@@ -4,7 +4,7 @@ A Backend or a Provider is a service that provides access to the AI language mod
 
 Currently we have a total of 4 backends available:
 - OpenAI
-- Azure AI
+- Azure OpenAI
 - LocalAI
 - FakeAI
 
@@ -25,7 +25,7 @@ OpenAI is the default backend for K8sGPT. OpenAI comes with the access to powerf
     k8sgpt analyze
     ```
 
-## Azure AI
+## Azure OpenAI
 
 Azure OpenAI Provider provides REST API access to OpenAI's powerful language models. It gives the users an advanced language AI with powerful models with the security and enterprise promise of Azure.
 
