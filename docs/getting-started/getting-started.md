@@ -7,7 +7,7 @@
 
 ### Setting up a Kubernetes cluster
 
-To give 'k8sgpt` a try, set up a basic KinD Kubernetes cluster if you are not connected to any other cluster.
+To give `k8sgpt` a try, set up a basic KinD Kubernetes cluster if you are not connected to any other cluster.
 Please only use K8sGPT on environments XXX
 
 The [KinD documentation](https://kind.sigs.k8s.io/docs/user/quick-start/) provides several installation options to set up a local cluster with two commands.
