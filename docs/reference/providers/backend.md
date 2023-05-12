@@ -59,8 +59,8 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 
 ## FakeAI
 
-FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local devlopment, testing and troubleshooting.
-The NoOpAiProvider does not acutally perfornm any AI-based operations but simulates them by echoing the input given as a problem.
+FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
+The NoOpAiProvider does not actually perfornm any AI-based operations but simulates them by echoing the input given as a problem.
 
 Follow the steps outlined below to learn how to utilize the NoOpAiProvider:
 
