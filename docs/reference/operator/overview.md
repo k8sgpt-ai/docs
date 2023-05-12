@@ -5,11 +5,26 @@ The scan results are provided as Kubernetes YAML manifests.
 
 This section will only detail how to configure the operator. For installatio  instrusction, please see the [getting-started section.](../../getting-started/in-cluster-operator.md)
 
+## Architecture
+
+The diagram below showcases the different components that the K8sGPT Operator installs and manages:
+
+![Operator Architecture](../../imgs/operator.png)
+
 ## Customising the Operator
 
 As with other Helm Charts, the K8sGPT Operator can be customised by modifying [the `values.yaml` file.](https://github.com/k8sgpt-ai/k8sgpt/blob/main/charts/k8sgpt/values.yaml)
 
-### In-cluster metrics
+The following fields can be customised in the Helm Chart Deployment:
+
+| Parameter | Description | Default |
+| --------- | ----------- | ------- |
+| `serviceMonitor.enabled` | Enable Prometheus Operator ServiceMonitor | `false` |
+| `controllerManager.manager.image.repository` | Image repository | `k8sgpt/k8sgpt-operator` |
+| `controllerManager.manager.image.pullPolicy` | Image pull policy | `IfNotPresent` |
+| `controllerManager.manager.imagePullSecrets` | Image pull secrets | `[]` |
+
+### For example: In-cluster metrics
 
 It is possible to enable metrics of the operator so that they can be scraped through Prometheus.
 
