@@ -7,10 +7,12 @@
 
 ### Setting up a Kubernetes cluster
 
-To give 'k8sgpt` a try, set up a basic KinD Kubernetes cluster if you are not connected to any other cluster.
+To give 'k8sgpt` a try, set up a basic "Kubernetes in Docker" like KinD or Minikube (if you are not connected to any other cluster).
 Please only use K8sGPT on environments XXX
 
-The [KinD documentation](https://kind.sigs.k8s.io/docs/user/quick-start/) provides several installation options to set up a local cluster with two commands.
+- The [KinD documentation](https://kind.sigs.k8s.io/docs/user/quick-start/) provides several installation options to set up a local cluster with two commands.
+
+- The [Minikube documentation](https://minikube.sigs.k8s.io/docs/start/) covers different Operative Systems and Architectures to set up a local Kubernetes cluster running on a Container or Virtual Machine.
 
 ## Using K8sGPT
 
@@ -42,7 +44,7 @@ Flags:
 Use "k8sgpt [command] --help" for more information about a command.
 ```
 
-## Authenticate with ChatGPT
+## Authenticate with OpenAI
 
 First, you will need to authenticate with your chosen backend. The backend is the AI provider such as OpenAI's ChatGPT.
 
@@ -54,7 +56,7 @@ Next, generate a token from the backend:
 k8sgpt generate
 ```
 
-This will provide you with a URL to generate a token, follow the URL from the commandline to your browser to then generate the token.
+This will provide you with a URL to generate a token, follow the URL from the command line to your browser to then generate the token.
 
 ![Generate a token on the OpenAI website](../imgs/generate-token.png)
 
@@ -63,20 +65,57 @@ Copy the token for the next step.
 Then, authenticate with the following command:
 
 ```bash
-k8sgpt auth
+k8sgpt auth new
 ```
 
-This will request the token that has just been generated. Paste the token into the commandline.
+This will request the token that has just been generated. Paste the token into the command line.
 
 You should then see the following success message:
-> Enter openai Key: key added
+> Enter openai Key: openai added to the AI backend provider list
 
 ## Analyse your cluster
 
-Ensure that you are connected to a Kubernetes cluster:
+Ensure that you are connected the correct Kubernetes cluster, for this initial example is preferable to use KinD or Minikube as discussed earlier.
+
+```bash
+kubectl config current-context
+```
 
 ```bash
 kubectl get nodes
+```
+
+We will new create a new "broken Pod", simply create a new YAML file named `broken-pod.yml` with the following contents:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: broken-pod
+  namespace: default
+spec:
+  containers:
+    - name: broken-pod
+      image: nginx:1.a.b.c
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 81
+        initialDelaySeconds: 3
+        periodSeconds: 3
+```
+You might have noticed, this Pod has a wrong image tag. This is ok for this example, we simply want to have an issue in our cluster. The simply run:
+
+```bash
+kubectl apply -f broken-pod.yml
+```
+
+This will create the "broken Pod" in the cluster. You can verify this by running:
+
+```bash
+kubectl get pods
+
+NAME         READY   STATUS         RESTARTS   AGE
+broken-pod   0/1     ErrImagePull   0          5s
 ```
 
 Next, you can go ahead an analyse your cluster:
@@ -85,4 +124,11 @@ Next, you can go ahead an analyse your cluster:
 k8sgpt analyse
 ```
 
-This will provide you with a list of issues of your Kubernetes cluster.
+This will provide you with a list of issues in your Kubernetes cluster, for our example you should have a message pointing the issue with the container image.
+
+```bash
+0 default/broken-pod(broken-pod)
+- Error: Back-off pulling image "nginx:1.a.b.c"
+```
+
+Congratulations! you have successfully created a local kubernetes cluster, deployed a "broken Pod" and analyzed it using k8sgpt.
