@@ -30,7 +30,7 @@ This command authenticates you with your chosen backend. Provide the access toke
 
 Command:
 ```bash
-k8sgpt analyse
+k8sgpt analyze
 ```
 
 This command will find problems within your Kubernetes cluster.

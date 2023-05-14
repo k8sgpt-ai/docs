@@ -71,7 +71,7 @@ This will request the token that has just been generated. Paste the token into t
 You should then see the following success message:
 > Enter openai Key: key added
 
-## Analyse your cluster
+## analyze your cluster
 
 Ensure that you are connected to a Kubernetes cluster:
 
@@ -79,10 +79,10 @@ Ensure that you are connected to a Kubernetes cluster:
 kubectl get nodes
 ```
 
-Next, you can go ahead an analyse your cluster:
+Next, you can go ahead an analyze your cluster:
 
 ```bash
-k8sgpt analyse
+k8sgpt analyze
 ```
 
 This will provide you with a list of issues of your Kubernetes cluster.
