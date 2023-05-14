@@ -71,7 +71,7 @@ This will request the token that has just been generated. Paste the token into t
 You should then see the following success message:
 > Enter openai Key: key added
 
-## analyze your cluster
+## Analyze your cluster
 
 Ensure that you are connected to a Kubernetes cluster:
 
