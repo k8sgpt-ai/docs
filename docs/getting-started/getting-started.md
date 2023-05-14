@@ -30,16 +30,18 @@ Available Commands:
   analyze     This command will find problems within your Kubernetes cluster
   auth        Authenticate with your chosen backend
   completion  Generate the autocompletion script for the specified shell
+  filters     Manage filters for analyzing Kubernetes resources
   generate    Generate Key for your chosen backend (opens browser)
   help        Help about any command
+  integration Intergrate another tool into K8sGPT
+  serve       Runs k8sgpt as a server
   version     Print the version number of k8sgpt
 
 Flags:
-      --config string       config file (default is $HOME/.k8sgpt.yaml)
-  -h, --help                help for k8sgpt
-      --kubeconfig string   Path to a kubeconfig. Only required if out-of-cluster.
-      --master string       The address of the Kubernetes API server. Overrides any value in kubeconfig. Only required if out-of-cluster.
-  -t, --toggle              Help message for toggle
+      --config string        config file (default is $HOME/.k8sgpt.yaml)
+  -h, --help                 help for k8sgpt
+      --kubeconfig string    Path to a kubeconfig. Only required if out-of-cluster.
+      --kubecontext string   Kubernetes context to use. Only required if out-of-cluster.
 
 Use "k8sgpt [command] --help" for more information about a command.
 ```
@@ -118,17 +120,26 @@ NAME         READY   STATUS         RESTARTS   AGE
 broken-pod   0/1     ErrImagePull   0          5s
 ```
 
-Next, you can go ahead an analyse your cluster:
+Now, you can go ahead and analyse your cluster:
 
 ```bash
 k8sgpt analyse
 ```
 
-This will provide you with a list of issues in your Kubernetes cluster, for our example you should have a message pointing the issue with the container image.
+Executing this command will generate a list of issues present in your Kubernetes cluster. In the case of our example, a message should be displayed highlighting the problem related to the container image.
 
 ```bash
 0 default/broken-pod(broken-pod)
 - Error: Back-off pulling image "nginx:1.a.b.c"
 ```
 
-Congratulations! you have successfully created a local kubernetes cluster, deployed a "broken Pod" and analyzed it using k8sgpt.
+!!! info
+    To become acquainted with the available flags supported by the `analyse` command, type `k8sgpt analyse -h` for more information. This will provide you with a comprehensive list of all the flags that can be utilized.
+
+For a more engaging experience and a better understanding of the capabilities of `k8sgpt` and LLMs (Large Language Models), run the following command:
+
+```bash
+k8sgpt analyse --explain
+```
+
+Congratulations! you have successfully created a local kubernetes cluster, deployed a "broken Pod" and analyzed it using `k8sgpt`.

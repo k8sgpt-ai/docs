@@ -7,36 +7,39 @@ repo_url: https://github.com/k8sgpt-ai/k8sgpt
 edit_uri: https://github.com/k8sgpt-ai/docs/edit/main/docs/
 
 nav:
-  - Getting Started: 
-      - Overview: index.md
-      - Getting Started Guide: getting-started/getting-started.md
-      - Installation: getting-started/installation.md
-      - In-Cluster Operator: getting-started/in-cluster-operator.md
-  - Tutorials:
-      - Overview: tutorials/index.md
-      - Content Collection: tutorials/content-collection/content-collection.md
-  - Reference:
-      - CLI:
-          - Overview: reference/cli/index.md
-          - Integration and Filter: reference/cli/filters.md
-      - Operator:
-          - Overview: reference/operator/overview.md
-      - Guidelines & Community:
-          - Guidelines: reference/guidelines/guidelines.md
-          - Community: reference/guidelines/community.md
-          - Privacy: reference/guidelines/privacy.md
-  - Explanation: explanation/index.md
+    - Getting Started:
+          - Overview: index.md
+          - Getting Started Guide: getting-started/getting-started.md
+          - Installation: getting-started/installation.md
+          - In-Cluster Operator: getting-started/in-cluster-operator.md
+    - Tutorials:
+          - Overview: tutorials/index.md
+          - Content Collection: tutorials/content-collection/content-collection.md
+    - Reference:
+          - CLI:
+                - Overview: reference/cli/index.md
+                - Integration and Filter: reference/cli/filters.md
+          - Operator:
+                - Overview: reference/operator/overview.md
+          - Guidelines & Community:
+                - Guidelines: reference/guidelines/guidelines.md
+                - Community: reference/guidelines/community.md
+                - Privacy: reference/guidelines/privacy.md
+    - Explanation: explanation/index.md
 
 theme:
-  name: material
-  language: "en"
-  logo: imgs/icon-logo-01.svg
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - content.tabs.link
+    name: material
+    language: "en"
+    logo: imgs/icon-logo-01.svg
+    features:
+        - navigation.tabs
+        - navigation.tabs.sticky
+        - navigation.sections
+        - content.tabs.link
+
+markdown_extensions:
+    - admonition
 
 plugins:
-  - search
-  - macros
+    - search
+    - macros
