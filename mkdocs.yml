@@ -19,6 +19,7 @@ nav:
       - CLI:
           - Overview: reference/cli/index.md
           - Integration and Filter: reference/cli/filters.md
+          - Serve mode: reference/cli/serve-mode.md
       - Operator:
           - Overview: reference/operator/overview.md
       - Guidelines & Community:
