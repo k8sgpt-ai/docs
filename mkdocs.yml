@@ -37,6 +37,9 @@ theme:
     - navigation.sections
     - content.tabs.link
 
+markdown_extensions:
+  - admonition
+
 plugins:
   - search
   - macros
