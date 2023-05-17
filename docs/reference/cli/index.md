@@ -76,14 +76,14 @@ The default is located at `$HOME/.k8sgpt.yaml`
 
 Access more information on the different commands:
 ```bash
-  -h, --help
+-h, --help
 ```
 
 ### --kubeconfig
 
 Provide the Path to your KubeConfig:
 ```bash
-      --kubeconfig string
+--kubeconfig string
 ```
 
 ### --kubecontext

@@ -7,7 +7,7 @@
 
 ### Setting up a Kubernetes cluster
 
-To give 'k8sgpt` a try, set up a basic Kubernetes cluster, such as KinD or Minikube (if you are not connected to any other cluster).
+To give `k8sgpt` a try, set up a basic Kubernetes cluster, such as KinD or Minikube (if you are not connected to any other cluster).
 
 !!! tip
     Please only use K8sGPT on environments where you are authorized to modify Kubernetes resources.
