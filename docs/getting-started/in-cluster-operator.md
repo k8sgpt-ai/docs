@@ -11,7 +11,8 @@ To install the operator, run the following command:
 
 ```bash
 helm repo add k8sgpt https://charts.k8sgpt.ai/
-helm install release k8sgpt/k8sgpt-operator
+helm repo update
+helm install release k8sgpt/k8sgpt-operator -n k8sgpt-operator-system --create-namespace
 ```
 
 This will install the Operator into the cluster, which will await a `K8sGPT` resource before anything happens.
@@ -42,7 +43,7 @@ spec:
   model: gpt-3.5-turbo
   backend: openai
   noCache: false
-  version: v0.2.7
+  version: v0.3.0
   enableAI: true
   secret:
     name: k8sgpt-sample-secret

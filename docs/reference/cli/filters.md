@@ -55,18 +55,18 @@ Unused:
 > PodDisruptionBudget
 ```
 
-## Using the new filters to analyse your cluster
+## Using the new filters to analyze your cluster
 
-Any of the filters listed in the previous section can be used as part of the `k8sgpt analyse` command.
+Any of the filters listed in the previous section can be used as part of the `k8sgpt analyze` command.
 
 To use the `VulnerabilityReport` filter from the Trivy integration, set it through the `--filter` flag:
 ```bash
-k8sgpt analyse --filter VulnerabilityReport
+k8sgpt analyze --filter VulnerabilityReport
 ```
 
-This command will analyse your cluster Vulnerabilities through K8sGPT. Depnding on the VulnerabilityReports available in your cluster, the result of the report will look different:
+This command will analyze your cluster Vulnerabilities through K8sGPT. Depnding on the VulnerabilityReports available in your cluster, the result of the report will look different:
 ```bash
-❯ k8sgpt analyse --filter VulnerabilityReport
+❯ k8sgpt analyze --filter VulnerabilityReport
 
 0 demo/nginx-deployment-7bcfc88bbf(Deployment/nginx-deployment)
 - Error: critical Vulnerability found ID: CVE-2023-23914 (learn more at: https://avd.aquasec.com/nvd/cve-2023-23914)
@@ -96,3 +96,4 @@ k8sgpt filters remove [filter(s)]
 
 - Simple filter : `k8sgpt filters remove Service`
 - Multiple filters : `k8sgpt filters remove Ingress,Pod`
+
