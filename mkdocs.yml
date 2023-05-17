@@ -25,6 +25,8 @@ nav:
           - Guidelines: reference/guidelines/guidelines.md
           - Community: reference/guidelines/community.md
           - Privacy: reference/guidelines/privacy.md
+      - Providers:
+          - Overview: reference/providers/backend.md
   - Explanation: explanation/index.md
 
 theme:
