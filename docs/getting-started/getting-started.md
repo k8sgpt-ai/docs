@@ -77,7 +77,7 @@ This will request the token that has just been generated. Paste the token into t
 You should then see the following success message:
 > Enter openai Key: openai added to the AI backend provider list
 
-## Analyse your cluster
+## Analyze your cluster
 
 Ensure that you are connected the correct Kubernetes cluster, for this initial example is preferable to use KinD or Minikube as discussed earlier.
 
@@ -125,7 +125,7 @@ broken-pod   0/1     ErrImagePull   0          5s
 Now, you can go ahead and analyse your cluster:
 
 ```bash
-k8sgpt analyse
+k8sgpt analyze
 ```
 
 Executing this command will generate a list of issues present in your Kubernetes cluster. In the case of our example, a message should be displayed highlighting the problem related to the container image.
