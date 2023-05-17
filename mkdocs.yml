@@ -12,7 +12,6 @@ nav:
       - Getting Started Guide: getting-started/getting-started.md
       - Installation: getting-started/installation.md
       - In-Cluster Operator: getting-started/in-cluster-operator.md
-      - Serve mode: getting-started/serve-mode.md
   - Tutorials:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
@@ -20,6 +19,7 @@ nav:
       - CLI:
           - Overview: reference/cli/index.md
           - Integration and Filter: reference/cli/filters.md
+          - Serve mode: reference/cli/serve-mode.md
       - Operator:
           - Overview: reference/operator/overview.md
       - Guidelines & Community:
