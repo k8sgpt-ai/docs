@@ -1,5 +1,7 @@
 # Getting Started Guide
 
+You can either get started with K8sGPT in your own environment, the details are provided below or you can use our [Playground example on Killrcoda](../tutorials/playground.md).
+
 ## Prerequisites
 
 1. Ensure `k8sgpt` is installed correctly on your environment by following the [installation](./installation.md).
