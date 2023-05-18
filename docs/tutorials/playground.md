@@ -9,5 +9,5 @@ This tutorials covers:
 - Run a simple analysis and explore possible options
 - Discover how AI works Explanation
 - Stay on the down-low with the anonymize option (because we don't want any trouble with the feds)
-- Filter ressources like a boss
+- Filter resources like a boss
 - Use Integrations
