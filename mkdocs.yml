@@ -15,6 +15,7 @@ nav:
   - Tutorials:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
+      - K8sGPT Playground: tutorials/playground.md
   - Reference:
       - CLI:
           - Overview: reference/cli/index.md
