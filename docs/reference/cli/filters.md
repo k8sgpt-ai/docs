@@ -75,3 +75,25 @@ This command will analyze your cluster Vulnerabilities through K8sGPT. Depnding 
 - Error: critical Vulnerability found ID: CVE-2023-27536 (learn more at: https://avd.aquasec.com/nvd/cve-2023-27536)
 - Error: critical Vulnerability found ID: CVE-2019-8457 (learn more at: https://avd.aquasec.com/nvd/cve-2019-8457)
 ```
+
+## Adding and removing default filters
+
+_Remove default filters_
+
+```
+k8sgpt filters add [filter(s)]
+```
+
+- Simple filter : `k8sgpt filters add Service`
+- Multiple filters : `k8sgpt filters add Ingress,Pod`
+
+
+_Remove default filters_
+
+```
+k8sgpt filters remove [filter(s)]
+```
+
+- Simple filter : `k8sgpt filters remove Service`
+- Multiple filters : `k8sgpt filters remove Ingress,Pod`
+
