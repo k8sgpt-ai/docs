@@ -7,7 +7,7 @@ K8sGPT offers integration with other tools. Once an integration is added to K8sG
 
 
 The first integration that has been added is Trivy.
-[Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scnaner, maintained by Aqua Security.
+[Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scanner, maintained by Aqua Security.
 
 Use the following command to access all K8sGPT CLI options related to integrations:
 ```bash
