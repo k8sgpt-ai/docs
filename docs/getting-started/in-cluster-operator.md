@@ -43,13 +43,15 @@ spec:
   model: gpt-3.5-turbo
   backend: openai
   noCache: false
-  version: v0.3.0
+  version: <VERSION>
   enableAI: true
   secret:
     name: k8sgpt-sample-secret
     key: openai-api-key
 EOF
 ```
+
+Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.6`.
 
 ### Regarding out of cluster traffic to AI backends
 
