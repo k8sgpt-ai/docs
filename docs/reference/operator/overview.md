@@ -13,7 +13,7 @@ The diagram below showcases the different components that the K8sGPT Operator in
 
 ## Customising the Operator
 
-As with other Helm Charts, the K8sGPT Operator can be customised by modifying [the `values.yaml` file.](https://github.com/k8sgpt-ai/k8sgpt/blob/main/charts/k8sgpt/values.yaml)
+As with other Helm Charts, the K8sGPT Operator can be customised by modifying the [ `values.yaml` ](https://github.com/k8sgpt-ai/k8sgpt/blob/main/charts/k8sgpt/values.yaml) file.
 
 The following fields can be customised in the Helm Chart Deployment:
 
