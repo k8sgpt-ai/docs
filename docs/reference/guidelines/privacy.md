@@ -23,7 +23,7 @@ To learn more about the privacy policy of our default AI backend OpenAI please v
 
 ## Data we protect
 
-When you are sending data through the `--explain` option, there is the capability of anonymising some of that data. This is done by using the `--anonymise` flag. In the example of the Deployment Analyzer, this will obfusicate the following data:
+When you are sending data through the `--explain` option, there is the capability of anonymising some of that data. This is done by using the `--anonymize` flag. In the example of the Deployment Analyzer, this will obfusicate the following data:
 
 - Deployment name
 - Deployment namespace
