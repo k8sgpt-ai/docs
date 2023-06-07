@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - To begin you will require a Kubernetes cluster available and `KUBECONFIG` set.
-- You will also need to install helm v3. [See the Helm documentation for more information](https://helm.sh/docs/intro/install/).
+- You will also need to install helm v3. See the [Helm documentation](https://helm.sh/docs/intro/install/) for more information.
 
 ## Operator Installation
 
