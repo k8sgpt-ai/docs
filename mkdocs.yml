@@ -23,6 +23,7 @@ nav:
           - Serve mode: reference/cli/serve-mode.md
       - Operator:
           - Overview: reference/operator/overview.md
+          - Advanced Installation Options: reference/operator/advanced-installation.md
       - Guidelines & Community:
           - Guidelines: reference/guidelines/guidelines.md
           - Community: reference/guidelines/community.md

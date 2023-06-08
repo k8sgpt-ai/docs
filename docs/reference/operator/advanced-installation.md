@@ -50,7 +50,7 @@ Note:
 
 * Ensure that the `namespace` is correctly set to your ArgoCD namespace
 * Ensure that the `<VERSION>` is set to the [K8sGPT Operator Release Version](https://github.com/k8sgpt-ai/k8sgpt-operator/releases) that you want to use.
-* Modify the `helm.values` section with the Helm Values that you would like to overwrite.
+* Modify the `helm.values` section with the Helm Values that you would like to overwrite. Check the [values.yaml](https://github.com/k8sgpt-ai/k8sgpt-operator/tree/main/chart/operator) file of the Operator for options.
 
 Applying the resource:
 
