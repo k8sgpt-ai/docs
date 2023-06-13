@@ -3,7 +3,7 @@
 K8sGPT can run as a Kubernetes Operator inside the cluster.
 The scan results are provided as Kubernetes YAML manifests.
 
-This section will only detail how to configure the operator. For installatio  instrusction, please see the [getting-started section.](../../getting-started/in-cluster-operator.md)
+This section will only detail how to configure the operator. For installation instructions, please see the [getting-started section.](../../getting-started/in-cluster-operator.md)
 
 ## Architecture
 
