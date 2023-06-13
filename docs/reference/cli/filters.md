@@ -7,7 +7,7 @@ K8sGPT offers integration with other tools. Once an integration is added to K8sG
 
 
 The first integration that has been added is Trivy.
-[Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scnaner, maintained by Aqua Security.
+[Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scanner, maintained by Aqua Security.
 
 Use the following command to access all K8sGPT CLI options related to integrations:
 ```bash
@@ -64,7 +64,7 @@ To use the `VulnerabilityReport` filter from the Trivy integration, set it throu
 k8sgpt analyze --filter VulnerabilityReport
 ```
 
-This command will analyze your cluster Vulnerabilities through K8sGPT. Depnding on the VulnerabilityReports available in your cluster, the result of the report will look different:
+This command will analyze your cluster Vulnerabilities through K8sGPT. Depending on the VulnerabilityReports available in your cluster, the result of the report will look different:
 ```bash
 ❯ k8sgpt analyze --filter VulnerabilityReport
 
