@@ -90,7 +90,7 @@ kubectl config current-context
 kubectl get nodes
 ```
 
-We will new create a new "broken Pod", simply create a new YAML file named `broken-pod.yml` with the following contents:
+We will now create a new "broken Pod", simply create a new YAML file named `broken-pod.yml` with the following contents:
 ```yaml
 apiVersion: v1
 kind: Pod
