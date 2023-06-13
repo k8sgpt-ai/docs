@@ -53,7 +53,7 @@ EOF
 
 Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.6`.
 
-### Regarding out of cluster traffic to AI backends
+### Regarding out-of-cluster traffic to AI backends
 
 In the above example `enableAI` is set to `true`.
 This option allows the cluster deployment to use the `backend` to filter and improve the responses to the user.
@@ -66,7 +66,7 @@ _It should also be noted that `localai` is supported and in-cluster models will 
 
 ## Viewing the results
 
-Once the initial scans have completed after several minutes, you will be presented with results custom resources.
+Once the initial scans have been completed after several minutes, you will be presented with results custom resources.
 
 ```bash
 ❯ kubectl get results -o json | jq .
