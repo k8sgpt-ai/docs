@@ -16,7 +16,7 @@ To give `k8sgpt` a try, set up a basic Kubernetes cluster, such as KinD or Minik
 
 - The [KinD documentation](https://kind.sigs.k8s.io/docs/user/quick-start/) provides several installation options to set up a local cluster with two commands.
 
-- The [Minikube documentation](https://minikube.sigs.k8s.io/docs/start/) covers different Operative Systems and Architectures to set up a local Kubernetes cluster running on a Container or Virtual Machine.
+- The [Minikube documentation](https://minikube.sigs.k8s.io/docs/start/) covers different Operating Systems and Architectures to set up a local Kubernetes cluster running on a Container or Virtual Machine.
 
 ## Using K8sGPT
 
