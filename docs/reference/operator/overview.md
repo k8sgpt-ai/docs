@@ -30,7 +30,7 @@ The following fields can be customised in the Helm Chart Deployment:
 | `controllerManager.kubeRbacProxy.containerSecurityContext.allowPrivilegeEscalation` |  | `false` |
 | `controllerManager.kubeRbacProxy.containerSecurityContext.capabilities.drop` |  | `["ALL"]` |
 | `controllerManager.kubeRbacProxy.image.repository` |  | `"gcr.io/kubebuilder/kube-rbac-proxy"` |
-| `controllerManager.kubeRbacProxy.image.tag` |  | `"v0.14.1"` |
+| `controllerManager.kubeRbacProxy.image.tag` |  | `"v0.0.19"` |
 | `controllerManager.kubeRbacProxy.resources.limits.cpu` |  | `"500m"` |
 | `controllerManager.kubeRbacProxy.resources.limits.memory` |  | `"128Mi"` |
 | `controllerManager.kubeRbacProxy.resources.requests.cpu` |  | `"5m"` |
@@ -39,7 +39,7 @@ The following fields can be customised in the Helm Chart Deployment:
 | `controllerManager.manager.containerSecurityContext.allowPrivilegeEscalation` |  | `false` |
 | `controllerManager.manager.containerSecurityContext.capabilities.drop` |  | `["ALL"]` |
 | `controllerManager.manager.image.repository` |  | `"ghcr.io/k8sgpt-ai/k8sgpt-operator"` |
-| `controllerManager.manager.image.tag` |  | `"v0.0.17"` |
+| `controllerManager.manager.image.tag` | | `"v0.0.19"` |
 | `controllerManager.manager.resources.limits.cpu` |  | `"500m"` |
 | `controllerManager.manager.resources.limits.memory` |  | `"128Mi"` |
 | `controllerManager.manager.resources.requests.cpu` |  | `"10m"` |
@@ -48,7 +48,6 @@ The following fields can be customised in the Helm Chart Deployment:
 | `kubernetesClusterDomain` |  | `"cluster.local"` |
 | `metricsService.ports` |  | `[{"name": "https", "port": 8443, "protocol": "TCP", "targetPort": "https"}]` |
 | `metricsService.type` |  | `"ClusterIP"` |
-
 
 ### For example: In-cluster metrics
 

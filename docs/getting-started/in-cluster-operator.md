@@ -38,13 +38,19 @@ apiVersion: core.k8sgpt.ai/v1alpha1
 kind: K8sGPT
 metadata:
   name: k8sgpt-sample
+  namespace: k8sgpt-operator-system
 spec:
-  namespace: default
-  model: gpt-3.5-turbo
-  backend: openai
+  ai:
+    enabled: true
+    model: gpt-3.5-turbo
+    backend: openai
+    secret:
+      name: k8sgpt-sample-secret
+      key: openai-api-key
+    # anonymized: false
+    # language: english
   noCache: false
-  version: <VERSION>
-  enableAI: true
+  version: v0.3.8
   # filters:
   #   - Ingress
   # sink:
@@ -53,9 +59,6 @@ spec:
   # extraOptions:
   #   backstage:
   #     enabled: true
-  secret:
-    name: k8sgpt-sample-secret
-    key: openai-api-key
 EOF
 ```
 
