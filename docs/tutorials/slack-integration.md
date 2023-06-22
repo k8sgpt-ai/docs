@@ -1,7 +1,7 @@
 # Integrate K8sGPT operator with Slack  
 ## Create a slack app and webhook 
 - You need to create a slack channel
-- Create an Slack app
+- Create a Slack app
 - Enable and create an incoming webhook
 - Copy the webhook URL value
 
