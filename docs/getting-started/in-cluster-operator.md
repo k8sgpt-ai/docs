@@ -38,16 +38,27 @@ apiVersion: core.k8sgpt.ai/v1alpha1
 kind: K8sGPT
 metadata:
   name: k8sgpt-sample
+  namespace: k8sgpt-operator-system
 spec:
-  namespace: default
-  model: gpt-3.5-turbo
-  backend: openai
+  ai:
+    enabled: true
+    model: gpt-3.5-turbo
+    backend: openai
+    secret:
+      name: k8sgpt-sample-secret
+      key: openai-api-key
+    # anonymized: false
+    # language: english
   noCache: false
-  version: <VERSION>
-  enableAI: true
-  secret:
-    name: k8sgpt-sample-secret
-    key: openai-api-key
+  version: v0.3.8
+  # filters:
+  #   - Ingress
+  # sink:
+  #   type: slack
+  #   webhook: <webhook-url>
+  # extraOptions:
+  #   backstage:
+  #     enabled: true
 EOF
 ```
 
@@ -62,7 +73,7 @@ Those responses will appear as `details` within the `Result` custom resources th
 The default backend in this example is [OpenAI](https://openai.com/) and allows for additional details to be generated and solutions provided for issues.
 If you wish to disable out-of-cluster communication and any Artificial Intelligence processing through models, simply set `enableAI` to `false`.
 
-_It should also be noted that `localai` is supported and in-cluster models will be supported in the near future_
+_It should also be noted that `localai` and `azureopenai` is supported and in-cluster models will be supported in the near future_
 
 ## Viewing the results
 
