@@ -70,7 +70,7 @@ Copy the token for the next step.
 Then, authenticate with the following command:
 
 ```bash
-k8sgpt auth new
+k8sgpt auth add --backend openai -m gpt-3.5-turbo
 ```
 
 This will request the token that has just been generated. Paste the token into the command line.
