@@ -30,7 +30,8 @@ nav:
           - Privacy: reference/guidelines/privacy.md
       - Providers:
           - Overview: reference/providers/backend.md
-  - Explanation: explanation/index.md
+  - Explanation: 
+      - Integration: explanation/integrations.md
 
 theme:
   name: material
