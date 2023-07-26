@@ -32,6 +32,7 @@ nav:
           - Overview: reference/providers/backend.md
   - Explanation: 
       - Integration: explanation/integrations.md
+      - Caching: explanation/caching.md
 
 theme:
   name: material
