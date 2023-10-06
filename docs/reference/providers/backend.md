@@ -3,6 +3,7 @@
 A Backend or a Provider is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
 Currently we have a total of 4 backends available:
+
 - [OpenAI](https://openai.com/)
 - [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
 - [LocalAI](https://github.com/go-skynet/LocalAI)

@@ -2,21 +2,34 @@
 
 You can either get started with K8sGPT in your own environment, the details are provided below or you can use our [Playground example on Killrcoda](../tutorials/playground.md).
 
+!!! tip
+    Please only use K8sGPT on environments where you are authorized to modify Kubernetes resources.
+
 ## Prerequisites
 
 1. Ensure `k8sgpt` is installed correctly on your environment by following the [installation](./installation.md).
-2. You need to be connected to any Kubernetes cluster.
+2. You need to be connected to any Kubernetes cluster. Below is the documentation for setting up a new KinD Kubernetes cluster. However, make sure that kubectl is already installed.
 
 ### Setting up a Kubernetes cluster
 
 To give `k8sgpt` a try, set up a basic Kubernetes cluster, such as KinD or Minikube (if you are not connected to any other cluster).
 
-!!! tip
-    Please only use K8sGPT on environments where you are authorized to modify Kubernetes resources.
-
 - The [KinD documentation](https://kind.sigs.k8s.io/docs/user/quick-start/) provides several installation options to set up a local cluster with two commands.
 
 - The [Minikube documentation](https://minikube.sigs.k8s.io/docs/start/) covers different Operating Systems and Architectures to set up a local Kubernetes cluster running on a Container or Virtual Machine.
+
+
+**Creating a KinD Kubernetes Cluster**
+
+Install KinD first:
+```bash
+brew install kind
+```
+
+Create a new Kubernetes cluster:
+```bash
+kind create cluster --name k8sgpt-demo
+```
 
 ## Using K8sGPT
 
@@ -32,6 +45,7 @@ Usage:
 Available Commands:
   analyze     This command will find problems within your Kubernetes cluster
   auth        Authenticate with your chosen backend
+  cache       For working with the cache the results of an analysis
   completion  Generate the autocompletion script for the specified shell
   filters     Manage filters for analyzing Kubernetes resources
   generate    Generate Key for your chosen backend (opens browser)
@@ -41,7 +55,7 @@ Available Commands:
   version     Print the version number of k8sgpt
 
 Flags:
-      --config string        config file (default is $HOME/.k8sgpt.yaml)
+      --config string        Default config file (/Users/anaisurlichs/Library/Application Support/k8sgpt/k8sgpt.yaml)
   -h, --help                 help for k8sgpt
       --kubeconfig string    Path to a kubeconfig. Only required if out-of-cluster.
       --kubecontext string   Kubernetes context to use. Only required if out-of-cluster.
@@ -53,7 +67,7 @@ Use "k8sgpt [command] --help" for more information about a command.
 
 First, you will need to authenticate with your chosen backend. The backend is the AI provider such as OpenAI's ChatGPT.
 
-[Ensure that you have created an account.](https://chat.openai.com/auth/login)
+[Ensure that you have created an account with OpenAI.](https://platform.openai.com/login)
 
 Next, generate a token from the backend:
 
@@ -70,7 +84,7 @@ Copy the token for the next step.
 Then, authenticate with the following command:
 
 ```bash
-k8sgpt auth add --backend openai -m gpt-3.5-turbo
+k8sgpt auth add 
 ```
 
 This will request the token that has just been generated. Paste the token into the command line.
