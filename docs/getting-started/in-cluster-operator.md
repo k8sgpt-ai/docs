@@ -25,7 +25,7 @@ Whatever backend you are using, you need to make sure to have a secret that work
 For instance, this means you will need to install your OpenAI token as a secret into the cluster:
 
 ```bash
-kubectl create secret generic k8sgpt-sample-secret --from-literal=openai-api-key=$OPENAI_TOKEN -n default
+kubectl create secret generic k8sgpt-sample-secret --from-literal=openai-api-key=$OPENAI_TOKEN -n k8sgpt-operator-system
 ```
 
 ## Deploying a K8sGPT resource
@@ -50,7 +50,7 @@ spec:
     # anonymized: false
     # language: english
   noCache: false
-  version: v0.3.8
+  version: v0.3.17
   # filters:
   #   - Ingress
   # sink:
@@ -62,7 +62,7 @@ spec:
 EOF
 ```
 
-Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.6`.
+Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.17`.
 
 ### Regarding out-of-cluster traffic to AI backends
 

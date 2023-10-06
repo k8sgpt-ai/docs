@@ -61,5 +61,5 @@ serviceMonitor:
 
 The new `values.yaml` manifest can then be provided upon installing the Operator inside the cluster:
 ```bash
-helm install release k8sgpt/k8sgpt-operator --values values.yaml
+helm update --install release k8sgpt/k8sgpt-operator --values values.yaml
 ```
