@@ -3,7 +3,7 @@
 K8sGPT offers integration with other tools. Once an integration is added to K8sGPT, it is possible to use its resources as additional filters.
 
 * Filters are a way of selecting which resources you wish to be part of your default analysis.
-* Integrations are a way to add in additional resources to the filter list.
+* Integrations are a way to add resources to the filter list.
 
 
 The first integration that has been added is Trivy.
@@ -32,28 +32,35 @@ Activate the Trivy integration:
 k8sgpt integration activate trivy
 ```
 
+Once activated, you should see the following success message displayed:
+> Activated integration trivy
+
 This will install the Trivy Kubernetes Operator into the Kubernetes cluster and make it possible for K8sGPT to interact with the results of the Operator.
 
-Once the Trivy Operator is installed inside the cluster, K8sGPT will have access to VulnerabilityReports:
+Once the Trivy Operator is installed inside the cluster, K8sGPT will have access to VulnerabilityReports and ConfigAuditReports:
 ```bash
-k8sgpt filters list
+❯ k8sgpt filters list
 
 Active: 
 > VulnerabilityReport (integration)
-Unused: 
 > Pod
-> Deployment
-> Service
-> StatefulSet
-> ReplicaSet
+> ConfigAuditReport (integration)
+Unused: 
 > PersistentVolumeClaim
-> Ingress
+> Service
 > CronJob
 > Node
-> NetworkPolicy
+> MutatingWebhookConfiguration
+> Deployment
+> StatefulSet
+> ValidatingWebhookConfiguration
+> ReplicaSet
+> Ingress
 > HorizontalPodAutoScaler
 > PodDisruptionBudget
-```
+> NetworkPolicy
+
+More information can be found on the official [Trivy-Operator documentation.](https://aquasecurity.github.io/trivy-operator/latest/docs/crds/)
 
 ## Using the new filters to analyze your cluster
 
