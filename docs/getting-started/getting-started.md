@@ -55,7 +55,7 @@ Available Commands:
   version     Print the version number of k8sgpt
 
 Flags:
-      --config string        Default config file (/Users/anaisurlichs/Library/Application Support/k8sgpt/k8sgpt.yaml)
+      --config string        Default config file (default is $HOME/.k8sgpt.yaml)
   -h, --help                 help for k8sgpt
       --kubeconfig string    Path to a kubeconfig. Only required if out-of-cluster.
       --kubecontext string   Kubernetes context to use. Only required if out-of-cluster.
@@ -84,7 +84,7 @@ Copy the token for the next step.
 Then, authenticate with the following command:
 
 ```bash
-k8sgpt auth add 
+k8sgpt auth add --backend openai --model gpt-3.5-turbo
 ```
 
 This will request the token that has just been generated. Paste the token into the command line.
