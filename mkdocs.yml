@@ -12,6 +12,7 @@ nav:
       - Getting Started Guide: getting-started/getting-started.md
       - Installation: getting-started/installation.md
       - In-Cluster Operator: getting-started/in-cluster-operator.md
+      - Community: getting-started/Community.md
   - Tutorials:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
