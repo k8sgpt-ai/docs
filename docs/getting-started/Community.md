@@ -14,7 +14,7 @@ these happen on 1st and 3rd Thursday of the month Time zone: Europe/London Time:
 
 Google Meet : [link](https://meet.google.com/beu-kbdx-dfa)
 
-Calender Link : [calender schedule](https://calendar.google.com/calendar/u/0?cid=YmE2NzAyZTNkMTIxYjYxN2Q4NmMzYjBjMmE2ZTAzYzgwMTg0NGRiYmMwOTY3MjAzNzJkNDBhZWZjOWJhZGNlNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+Calendar Link : [calendar schedule](https://calendar.google.com/calendar/u/0?cid=YmE2NzAyZTNkMTIxYjYxN2Q4NmMzYjBjMmE2ZTAzYzgwMTg0NGRiYmMwOTY3MjAzNzJkNDBhZWZjOWJhZGNlNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
 
 ## Contributing
 
