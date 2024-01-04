@@ -30,17 +30,17 @@ kubectl get nodes
 Next, run the following command:
 
 ```bash
-grpcurl -plaintext localhost:8080 schema.v1.Server/Analyze
+grpcurl -plaintext localhost:8080 schema.v1.ServerService/Analyze
 ```
 
-This command provides a list of issues in your Kubernetes cluster.
+This command provides a list of issues in your Kubernetes cluster. If there are no issues identified, you should receive a status of `OK`.
 
 ## Analyze with parameters
 
 You can specify parameters using the following command:
 
 ```bash
-grpcurl -plaintext -d '{"explain": false, "filters": ["Ingress"], "namespace": "k8sgpt"}' localhost:8080 schema.v1.Server/Analyze
+grpcurl -plaintext -d '{"explain": false, "filters": ["Ingress"], "namespace": "k8sgpt"}' localhost:8080 schema.v1.ServerService/Analyze
 ```
 
 In this example, the analyzer will only consider the `k8sgpt` namespace without AI explanation and only focus on the `Ingress` filter.

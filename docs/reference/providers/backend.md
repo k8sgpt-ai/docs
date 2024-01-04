@@ -2,11 +2,11 @@
 
 A Backend or a Provider is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
-Currently we have a total of 4 backends available:
-
+Currently we have a total of 5 backends available:
 - [OpenAI](https://openai.com/)
 - [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
+- [Amazon SageMaker](https://aws.amazon.com/sagemaker/)
 - FakeAI
 
 ## OpenAI
@@ -56,8 +56,25 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 - Analyze with a LocalAI backend:
     ```
     k8sgpt analyze --explain --backend localai
-
     ```
+
+## Amazon SageMaker
+
+The Amazon SageMaker backend allows you to leverage a self-deployed and managed Language Models (LLM) on Amazon SageMaker.
+
+Example how to deploy Amazon SageMaker with cdk is available in [llm-sagemaker-jumpstart-cdk](https://github.com/zaremb/llm-sagemaker-jumpstart-cdk) repo.
+
+- Run the following command to add SageMaker:
+
+```bash
+    k8sgpt auth add --backend amazonsagemaker --providerRegion eu-west-1 --endpointname endpoint-xxxxxxxxxx
+```
+
+- Now you are ready to analyze with the Amazon SageMaker backend:
+
+```bash
+    k8sgpt analyze --explain --backend amazonsagemaker
+```
 
 ## FakeAI
 
