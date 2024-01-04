@@ -26,14 +26,14 @@ brew install k8sgpt
 **32 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_386.rpm
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_386.rpm
 sudo rpm -ivh k8sgpt_386.rpm
 ```
 
 **64 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.rpm
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_amd64.rpm
 sudo rpm -ivh -i k8sgpt_amd64.rpm
 ```
 
@@ -42,14 +42,14 @@ sudo rpm -ivh -i k8sgpt_amd64.rpm
   **32 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.7/k8sgpt_386.deb
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_386.deb
 sudo dpkg -i k8sgpt_386.deb
 ```
 
 **64 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.7/k8sgpt_amd64.deb
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_amd64.deb
 sudo dpkg -i k8sgpt_amd64.deb
 ```
 
@@ -58,14 +58,14 @@ sudo dpkg -i k8sgpt_amd64.deb
   **32 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.7/k8sgpt_386.apk
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_386.apk
 apk add k8sgpt_386.apk
 ```
 
 **64 bit:**
 
 ```bash
-curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.2.1/k8sgpt_amd64.apk
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.3.24/k8sgpt_amd64.apk
 apk add k8sgpt_amd64.apk
 ```
 
