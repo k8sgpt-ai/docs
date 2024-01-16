@@ -16,6 +16,10 @@ Use the following command to access all K8sGPT CLI options related to integratio
 k8sgpt integrations
 ```
 
+## Prerequisites
+For using the K8sGPT integrations please ensure that you have the latest version of the [K8sGPT CLI](https://docs.k8sgpt.ai/getting-started/installation/) installed.
+Also, please make sure that you are connected to a Kubernetes cluster.
+
 ## Activating a new integration
 
 **Prerequisites**
@@ -92,13 +96,15 @@ This command will analyze your cluster Vulnerabilities through K8sGPT. Depending
 
 ## Prometheus
 
+The Prometheus integration does not deploy resources in your cluster. Instead,
+it detects a running Prometheus stack in the provided namespace using the
+`--namespace` flag. If you do not have Prometheus running, you can install it
+using [prometheus-operator](https://prometheus-operator.dev) or [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus).
+
 Activate the [Prometheus](https://prometheus.io) integration:
 ```bash
 k8sgpt integration activate prometheus --namespace <namespace>
 ```
-
-The Prometheus integration does not deploy resources in your cluster. Instead,
-it detects a running Prometheus stack in the provided namespace.
 
 If successful, you should see the following success message displayed:
 ```
