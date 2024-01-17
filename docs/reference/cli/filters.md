@@ -9,10 +9,16 @@ K8sGPT offers integration with other tools. Once an integration is added to K8sG
 The first integration that has been added is Trivy.
 [Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scanner, maintained by Aqua Security.
 
+K8sGPT also supports a [Prometheus](https://prometheus.io) integration. Prometheus is an open source monitoring solution.
+
 Use the following command to access all K8sGPT CLI options related to integrations:
 ```bash
 k8sgpt integrations
 ```
+
+## Prerequisites
+For using the K8sGPT integrations please ensure that you have the latest version of the [K8sGPT CLI](https://docs.k8sgpt.ai/getting-started/installation/) installed.
+Also, please make sure that you are connected to a Kubernetes cluster.
 
 ## Activating a new integration
 
@@ -25,7 +31,9 @@ To list all integrations run the following command:
 k8sgpt integrations list
 ```
 
-This will provide you with a list of available integrations. 
+This will provide you with a list of available integrations.
+
+## Trivy
 
 Activate the Trivy integration:
 ```bash
@@ -33,7 +41,9 @@ k8sgpt integration activate trivy
 ```
 
 Once activated, you should see the following success message displayed:
-> Activated integration trivy
+```
+Activated integration trivy
+```
 
 This will install the Trivy Kubernetes Operator into the Kubernetes cluster and make it possible for K8sGPT to interact with the results of the Operator.
 
@@ -59,10 +69,11 @@ Unused:
 > HorizontalPodAutoScaler
 > PodDisruptionBudget
 > NetworkPolicy
+```
 
 More information can be found on the official [Trivy-Operator documentation.](https://aquasecurity.github.io/trivy-operator/latest/docs/crds/)
 
-## Using the new filters to analyze your cluster
+### Using the new filters to analyze your cluster
 
 Any of the filters listed in the previous section can be used as part of the `k8sgpt analyze` command.
 
@@ -82,6 +93,119 @@ This command will analyze your cluster Vulnerabilities through K8sGPT. Depending
 - Error: critical Vulnerability found ID: CVE-2023-27536 (learn more at: https://avd.aquasec.com/nvd/cve-2023-27536)
 - Error: critical Vulnerability found ID: CVE-2019-8457 (learn more at: https://avd.aquasec.com/nvd/cve-2019-8457)
 ```
+
+## Prometheus
+
+The Prometheus integration does not deploy resources in your cluster. Instead,
+it detects a running Prometheus stack in the provided namespace using the
+`--namespace` flag. If you do not have Prometheus running, you can install it
+using [prometheus-operator](https://prometheus-operator.dev) or [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus).
+
+Activate the [Prometheus](https://prometheus.io) integration:
+```bash
+k8sgpt integration activate prometheus --namespace <namespace>
+```
+
+If successful, you should see the following success message displayed:
+```
+Activating prometheus integration...
+Found existing installation
+Activated integration prometheus
+```
+
+Otherwise, it will report an error:
+```
+Activating prometheus integration...
+Prometheus installation not found in namespace: <namespace>.
+                Please ensure Prometheus is deployed to analyze.
+Error: no prometheus installation found
+```
+
+Once activated, K8sGPT will have access to new filters:
+```bash
+❯ k8sgpt filters list
+
+Active: 
+> PersistentVolumeClaim
+> Service
+> ValidatingWebhookConfiguration
+> MutatingWebhookConfiguration
+> PrometheusConfigRelabelReport (integration)
+> Deployment
+> CronJob
+> Node
+> Pod
+> PrometheusConfigValidate (integration)
+> Ingress
+> StatefulSet
+> PrometheusConfigReport
+> ReplicaSet
+Unused: 
+> HorizontalPodAutoScaler
+> PodDisruptionBudget
+> NetworkPolicy
+> Log
+> GatewayClass
+> Gateway
+> HTTPRoute
+```
+
+### Using the new filters to analyze your cluster
+
+Any of the filters listed in the previous section can be used as part of the `k8sgpt analyze` command.
+
+The `PrometheusConfigValidate` analyzer does a basic "sanity-check" on your
+Prometheus configuration to ensure it is formatted correctly and that Prometheus
+can load it properly. For example, if Prometheus is deployed in the `monitoring`
+namespace and has a bad config, we can analyze the issue using the `--filter` flag:
+```bash
+❯ k8sgpt analyze --filter PrometheusConfigValidate --namespace monitoring --explain
+
+0 monitoring/prometheus-test-0(StatefulSet/prometheus-test)
+- Error: error validating Prometheus YAML configuration: unknown relabel action "keeps"
+Error: Unknown relabel action "keeps" in Prometheus configuration.
+
+Solution:
+1. Check the Prometheus documentation for valid relabel actions.
+2. Correct the relabel action to a valid one, such as "keep" or "drop".
+3. Ensure the relabel configuration is correct and matches the intended behavior.
+4. Restart Prometheus to apply the changes.
+```
+
+The `PrometheusConfigRelabelReport` analyzer parses your Prometheus relabeling
+rules and reports groups of labels needed by your targets to be scraped successfully.
+```bash
+❯ k8sgpt analyze --filter PrometheusConfigRelabelReport --namespace monitoring --explain
+
+Discovered and parsed Prometheus scrape configurations.
+For targets to be scraped by Prometheus, ensure they are running with
+at least one of the following label sets:
+- Job: prom-example
+  - Service Labels:
+    - app.kubernetes.io/name=prom-example
+  - Pod Labels:
+    - app.kubernetes.io/name=prom-example
+  - Namespaces:
+    - default
+  - Ports:
+    - metrics
+  - Containers:
+    - prom-example
+- Job: collector
+  - Service Labels:
+    - app.kubernetes.io/name=collector
+  - Pod Labels:
+    - app.kubernetes.io/name=collector
+  - Namespaces:
+    - monitoring
+  - Ports:
+    - prom-metrics
+  - Containers:
+    - collector
+```
+
+Note: the LLM prompt includes a subset of your Prometheus relabeling rules to
+avoid using too many tokens, so you may not see every label set in the output.
 
 ## Adding and removing default filters
 
