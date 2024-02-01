@@ -24,7 +24,7 @@ Also, please make sure that you are connected to a Kubernetes cluster.
 
 **Prerequisites**
 
-* Connected to a running Kubernetes cluster, any cluster will work for demonstration purposes
+* Connected to a running Kubernetes cluster, any cluster will work for demonstration purposes.
 
 To list all integrations run the following command:
 ```bash
@@ -51,11 +51,11 @@ Once the Trivy Operator is installed inside the cluster, K8sGPT will have access
 ```bash
 ❯ k8sgpt filters list
 
-Active: 
+Active:
 > VulnerabilityReport (integration)
 > Pod
 > ConfigAuditReport (integration)
-Unused: 
+Unused:
 > PersistentVolumeClaim
 > Service
 > CronJob
@@ -125,7 +125,7 @@ Once activated, K8sGPT will have access to new filters:
 ```bash
 ❯ k8sgpt filters list
 
-Active: 
+Active:
 > PersistentVolumeClaim
 > Service
 > ValidatingWebhookConfiguration
@@ -140,7 +140,7 @@ Active:
 > StatefulSet
 > PrometheusConfigReport
 > ReplicaSet
-Unused: 
+Unused:
 > HorizontalPodAutoScaler
 > PodDisruptionBudget
 > NetworkPolicy
