@@ -94,7 +94,7 @@ Azure OpenAI Provider provides REST API access to OpenAI's powerful language mod
 
 - Run the following command to authenticate with Azure OpenAI:
     ```bash
-    k8sgpt auth --backend azureopenai --baseurl https://<your Azure OpenAI endpoint> --engine <deployment_name> --model <model_name>
+    k8sgpt auth add --backend azureopenai --baseurl https://<your Azure OpenAI endpoint> --engine <deployment_name> --model <model_name>
     ```
 - Now you are ready to analyze with the Azure OpenAI backend:
     ```bash
