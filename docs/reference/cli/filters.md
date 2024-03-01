@@ -51,11 +51,11 @@ Once the Trivy Operator is installed inside the cluster, K8sGPT will have access
 ```bash
 ❯ k8sgpt filters list
 
-Active: 
+Active:
 > VulnerabilityReport (integration)
 > Pod
 > ConfigAuditReport (integration)
-Unused: 
+Unused:
 > PersistentVolumeClaim
 > Service
 > CronJob
@@ -125,7 +125,7 @@ Once activated, K8sGPT will have access to new filters:
 ```bash
 ❯ k8sgpt filters list
 
-Active: 
+Active:
 > PersistentVolumeClaim
 > Service
 > ValidatingWebhookConfiguration
@@ -140,7 +140,7 @@ Active:
 > StatefulSet
 > PrometheusConfigReport
 > ReplicaSet
-Unused: 
+Unused:
 > HorizontalPodAutoScaler
 > PodDisruptionBudget
 > NetworkPolicy
@@ -206,6 +206,61 @@ at least one of the following label sets:
 
 Note: the LLM prompt includes a subset of your Prometheus relabeling rules to
 avoid using too many tokens, so you may not see every label set in the output.
+
+## AWS
+
+Activate the AWS integration:
+```bash
+k8sgpt integration activate aws
+```
+Once activated, you should see the following success message displayed:
+```
+Activated integration aws
+```
+
+This will activate the AWS Kubernetes Operator into the Kubernetes cluster and make it possible for K8sGPT to interact with the results of the Operator.
+
+Once the AWS integration is activated inside the cluster, K8sGPT will have access to EKS:
+```bash
+❯ k8sgpt filters list
+
+Active:
+> StatefulSet
+> Ingress
+> Pod
+> Node
+> ValidatingWebhookConfiguration
+> Service
+> EKS (integration)
+> PersistentVolumeClaim
+> MutatingWebhookConfiguration
+> CronJob
+> Deployment
+> ReplicaSet
+Unused:
+> Log
+> GatewayClass
+> Gateway
+> HTTPRoute
+> HorizontalPodAutoScaler
+> PodDisruptionBudget
+> NetworkPolicy
+```
+
+More information can be found on the official [AWS-Operator documentation](https://aws.amazon.com/blogs/opensource/aws-service-operator-kubernetes-available/).
+
+### Using the new filters to analyze your cluster
+
+Any of the filters listed in the previous section can be used as part of the `k8sgpt analyze` command.
+
+> **Note:** Ensure the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables are set as outlined in the [AWS CLI environment variables documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html).
+
+To use the `EKS` filter from the AWS integration, specify it with the --filter flag:
+```bash
+k8sgpt analyze --filter EKS
+```
+
+This command analyzes your cluster's EKS resources using K8sGPT. Make sure your EKS cluster is working in the specified namespace. The report's results will vary based on the EKS reports available in your cluster.
 
 ## Adding and removing default filters
 
