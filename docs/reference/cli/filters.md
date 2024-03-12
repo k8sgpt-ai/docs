@@ -209,6 +209,8 @@ avoid using too many tokens, so you may not see every label set in the output.
 
 ## AWS
 
+The AWS Operator is a tool that allows Kubernetes to manage AWS resources directly, making it easier to integrate AWS services with other Kubernetes applications. This integration helps K8sGPT to interact with the AWS resources managed by the Operator. As a result, you can use K8sGPT to analyze and manage not only your Kubernetes resources but also your AWS resources that are under the management of the AWS Operator.
+
 Activate the AWS integration:
 ```bash
 k8sgpt integration activate aws
