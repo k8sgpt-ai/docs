@@ -4,7 +4,7 @@ K8sGPT is a privacy-first tool and believe transparency is key for you to unders
 
 ## Data we collect
 
-K8sGPT will collect data from Analyzers and either display it directly to you or 
+K8sGPT will collect data from Analyzers and either display it directly to you or
 with the `--explain` flag it will send it to the selected AI backend.
 
 The type of data collected depends on the Analyzer you are using. For example, the `k8sgpt analyze pod` command will collect the following data:
@@ -23,7 +23,7 @@ To learn more about the privacy policy of our default AI backend OpenAI please v
 
 ## Data we protect
 
-When you are sending data through the `--explain` option, there is the capability of anonymising some of that data. This is done by using the `--anonymize` flag. In the example of the Deployment Analyzer, this will obfusicate the following data:
+When you are sending data through the `--explain` option, there is the capability of anonymising some of that data. This is done by using the `--anonymize` flag. In the example of the Deployment Analyzer, this will obfuscate the following data:
 
 - Deployment name
 - Deployment namespace

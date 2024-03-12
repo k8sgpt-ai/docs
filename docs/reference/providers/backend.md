@@ -23,7 +23,7 @@ OpenAI is the default backend for K8sGPT. We recommend using OpenAI first if you
     ```
 - To set the token in K8sGPT, use the following command:
     ```bash
-    k8sgpt auth add 
+    k8sgpt auth add
     ```
 - Run the following command to analyze issues within your cluster using OpenAI:
     ```bash
@@ -90,7 +90,7 @@ Example how to deploy Amazon SageMaker with cdk is available in [llm-sagemaker-j
 Azure OpenAI Provider provides REST API access to OpenAI's powerful language models. It gives the users an advanced language AI with powerful models with the security and enterprise promise of Azure.
 
 - The Azure OpenAI Provider requires a deployment as a prerequisite. You can visit their [documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource) to create your own.
-  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant `https://your Azure OpenAI Endpoint`,the API key to access your deployment, the Deployment name of your model and the model name itself.
+  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant `https://your Azure OpenAI Endpoint`,the API key to access your deployment, the deployment name of your model and the model name itself.
 
 - Run the following command to authenticate with Azure OpenAI:
     ```bash
@@ -135,7 +135,7 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
-The NoOpAiProvider does not actually perfornm any AI-based operations but simulates them by echoing the input given as a problem.
+The NoOpAiProvider does not actually perform any AI-based operations but simulates them by echoing the input given as a problem.
 
 Follow the steps outlined below to learn how to utilize the NoOpAiProvider:
 

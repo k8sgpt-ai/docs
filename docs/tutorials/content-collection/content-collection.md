@@ -1,6 +1,6 @@
 # Content Collection
 
-This section provides a collection of vidoes, blog posts and more on K8sGPT, posted on external sites.
+This section provides a collection of videos, blog posts and more on K8sGPT, posted on external sites.
 
 ## Blogs
 Have a look at the K8sGPT blog on the [website.](https://k8sgpt.ai/blog/)

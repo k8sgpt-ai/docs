@@ -2,13 +2,13 @@
 
 Integrations in k8sGPT allows you to manage and configure various integrations with external tools and services within your repository's codebase.
 
-These Integrations enhance the functionality of k8sGPT by providing additional capabilities for scanning, diagnosing, and triaging issues in the Kubernetes clusters.
+These integrations enhance the functionality of k8sGPT by providing additional capabilities for scanning, diagnosing, and triaging issues in the Kubernetes clusters.
 
 ## Description
 
 The `integration` command in the k8sgpt enables seamless integration with external tools and services. It allows you to activate, configure, and manage integrations that complement the functionalities of k8sgpt.
 
-Integrations are designed to interact with external systems and tools that complement the functionalities of k8sgpt. These integrations include vulnerability scanners, monitoring services, incident management platforms, and more
+Integrations are designed to interact with external systems and tools that complement the functionalities of k8sgpt. These integrations include vulnerability scanners, monitoring services, incident management platforms, and more.
 
 By using the following command users can access all K8sGPT CLI options related to integrations:
 

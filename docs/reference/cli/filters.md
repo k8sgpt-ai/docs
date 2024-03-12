@@ -24,7 +24,7 @@ Also, please make sure that you are connected to a Kubernetes cluster.
 
 **Prerequisites**
 
-* Connected to a running Kubernetes cluster, any cluster will work for demonstration purposes
+* Connected to a running Kubernetes cluster, any cluster will work for demonstration purposes.
 
 To list all integrations run the following command:
 ```bash

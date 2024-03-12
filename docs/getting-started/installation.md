@@ -71,9 +71,9 @@ apk add k8sgpt_amd64.apk
 
 ## Windows
 
-* Download the latest Windows binaries of **k8sgpt** from the [Release](https://github.com/k8sgpt-ai/k8sgpt/releases) 
+* Download the latest Windows binaries of **k8sgpt** from the [Release](https://github.com/k8sgpt-ai/k8sgpt/releases)
   tab based on your system architecture.
-* Extract the downloaded package to your desired location. Configure the system *path* variable with the binary location
+* Extract the downloaded package to your desired location. Configure the system *path* variable with the binary location.
 
 ## Verify installation
 
@@ -92,7 +92,7 @@ Failing Installation on WSL or Linux (missing gcc)
 When installing Homebrew on WSL or Linux, you may encounter the following error:
 
 ```bash
-==> Installing k8sgpt from k8sgpt-ai/k8sgpt Error: The following formula cannot be installed from bottle and must be 
+==> Installing k8sgpt from k8sgpt-ai/k8sgpt Error: The following formula cannot be installed from bottle and must be
 built from source. k8sgpt Install Clang or run brew install gcc.
 ```
 
@@ -107,7 +107,7 @@ If you install gcc as suggested, the problem will persist. Therefore, you need t
   When installing Homebrew on WSL or Linux, you may encounter the following error:
 
   ```
-  ==> Installing k8sgpt from k8sgpt-ai/k8sgpt Error: The following formula cannot be installed from a bottle and must be 
+  ==> Installing k8sgpt from k8sgpt-ai/k8sgpt Error: The following formula cannot be installed from a bottle and must be
   built from the source. k8sgpt Install Clang or run brew install gcc.
   ```
 
@@ -117,7 +117,7 @@ If you install gcc as suggested, the problem will persist. Therefore, you need t
      sudo apt-get install build-essential
   ```
 
-## Running K8sGPT through a container 
+## Running K8sGPT through a container
 
 If you are running K8sGPT through a container, the CLI will not be able to open the website for the OpenAI token.
 
@@ -137,7 +137,7 @@ services:
 
 ## Installing the K8sGPT Operator Helm Chart
 
-K8sGPT can be installed as an Operator inside the cluster. 
+K8sGPT can be installed as an Operator inside the cluster.
 For further information, see the [K8sGPT Operator](in-cluster-operator.md) documentation.
 
 ## Upgrading the brew installation
