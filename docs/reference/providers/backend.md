@@ -2,7 +2,7 @@
 
 A Backend (also called Provider) is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
-Currently, we have a total of 9 backends available:
+Currently, we have a total of 10 backends available:
 
 - [OpenAI](https://openai.com/)
 - [Cohere](https://cohere.com/)
@@ -125,7 +125,7 @@ Google [Gemini](https://blog.google/technology/ai/google-gemini-ai/#performance)
 - To use [Google Vertex AI](https://cloud.google.com/vertex-ai?#build-with-gemini) you need to be authorized via [Google Cloud SDK](https://cloud.google.com/sdk/install). 
     The [Vertex AI API](https://console.cloud.google.com/apis/library/vertex-ai.googleapis.com) needs to be enabled.
 
-> Note: Vertex AI Gemini API is currently available in these [regions](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini?hl=de#http_request)
+> Note: Vertex AI Gemini API is currently available in these [regions](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini?hl=de#http_request), verify if those are working for your environment
 
 - Open a terminal or command prompt and run the following command to authenticate using your Google Cloud credentials:
     ```bash
