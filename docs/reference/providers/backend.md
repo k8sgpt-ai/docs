@@ -11,6 +11,7 @@ Currently, we have a total of 8 backends available:
 - [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
 - [Google Gemini](https://ai.google.dev/docs/gemini_api_overview)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
+- [Ollama](https://github.com/ollama/ollama)
 - FakeAI
 
 ## OpenAI
@@ -132,6 +133,27 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
     k8sgpt analyze --explain --backend localai
     ```
 
+## Ollama
+
+Ollama can get up and running locally with large language models. It runs Llama 2, Code Llama, and other models.
+
+- To start the Ollama server, follow the instruction in [Ollama](https://github.com/ollama/ollama?tab=readme-ov-file#start-ollama).
+    ```bash
+    ollama serve
+    ```
+  It can also run as an docker image, follow the instruction in [Ollama BLog](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
+    ```bash
+    docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+    ```
+
+- Authenticate K8sGPT with Ollama:
+    ```bash
+    k8sgpt auth add --backend ollama --model llama2 --baseurl http://localhost:11434/v1
+    ```
+- Analyze with a Ollama backend:
+    ```bash
+    k8sgpt analyze --explain --backend ollama
+    ```
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
