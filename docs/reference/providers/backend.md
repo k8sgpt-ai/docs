@@ -136,11 +136,10 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 
 Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the [Ollama library](https://ollama.com/library). 
 
-
 - To start the API server, follow the instruction in the [Ollama docs](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart).
 - Authenticate K8sGPT with LocalAI:
     ```bash
-    k8sgpt auth add --backend localai --model  <model_name> --baseurl http://localhost:11434/v1
+    k8sgpt auth add --backend localai --model <model_name> --baseurl http://localhost:11434/v1
     ```
 - Analyze with a LocalAI backend:
     ```bash
