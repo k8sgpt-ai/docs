@@ -10,6 +10,7 @@ Currently, we have a total of 8 backends available:
 - [Amazon SageMaker](https://aws.amazon.com/sagemaker/)
 - [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
 - [Google Gemini](https://ai.google.dev/docs/gemini_api_overview)
+- [Hugging Face](https://huggingface.co)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
 - FakeAI
 
@@ -115,6 +116,22 @@ Google [Gemini](https://blog.google/technology/ai/google-gemini-ai/#performance)
 - Run the following command to analyze issues within your cluster with the Google provider:
     ```bash
     k8sgpt analyze --explain --backend google
+    ```
+
+## HuggingFace
+
+Hugging Face is a versatile backend for K8sGPT, offering access to a wide range of pre-trained language models. It provides easy-to-use interfaces for both training and inference tasks. Refer to the Hugging Face [documentation](https://huggingface.co/docs) for further insights into model usage and capabilities.
+
+- To use Hugging Face API in K8sGPT, obtain [the API key](https://huggingface.co/settings/tokens).
+- Configure the HuggingFace backend in K8sGPT by specifying the desired model (see all [models](https://huggingface.co/models) here) using auth command:
+    ```bash
+    k8sgpt auth add --backend huggingface --model <model name>
+    ```
+> NOTE: Since the default gpt-3.5-turbo model is not available in Hugging Face, a valid backend model is required.
+
+- Once configured, you can analyze issues within your cluster using the Hugging Face provider with the following command:
+    ```bash
+    k8sgpt analyze --explain --backend huggingface
     ```
 
 ## LocalAI
