@@ -134,7 +134,7 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 
 ## Ollama (via LocalAI backend)
 
-Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the [Ollama libary](https://ollama.com/library). 
+Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the [Ollama library](https://ollama.com/library). 
 
 
 - To start the API server, follow the instruction in the [Ollama docs](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart).
