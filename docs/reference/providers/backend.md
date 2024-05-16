@@ -173,6 +173,20 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
     k8sgpt analyze --explain --backend localai
     ```
 
+## Ollama (via LocalAI backend)
+
+Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the [Ollama library](https://ollama.com/library). 
+
+- To start the API server, follow the instruction in the [Ollama docs](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart).
+- Authenticate K8sGPT with LocalAI:
+    ```bash
+    k8sgpt auth add --backend localai --model <model_name> --baseurl http://localhost:11434/v1
+    ```
+- Analyze with a LocalAI backend:
+    ```bash
+    k8sgpt analyze --explain --backend localai
+    ```
+
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
