@@ -11,6 +11,7 @@ Currently, we have a total of 10 backends available:
 - [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
 - [Google Gemini](https://ai.google.dev/docs/gemini_api_overview)
 - [Google Vertex AI](https://cloud.google.com/vertex-ai)
+- [Hugging Face](https://huggingface.co)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
 - FakeAI
 
@@ -24,7 +25,7 @@ OpenAI is the default backend for K8sGPT. We recommend using OpenAI first if you
     ```
 - To set the token in K8sGPT, use the following command:
     ```bash
-    k8sgpt auth add 
+    k8sgpt auth add
     ```
 - Run the following command to analyze issues within your cluster using OpenAI:
     ```bash
@@ -91,11 +92,11 @@ Example how to deploy Amazon SageMaker with cdk is available in [llm-sagemaker-j
 Azure OpenAI Provider provides REST API access to OpenAI's powerful language models. It gives the users an advanced language AI with powerful models with the security and enterprise promise of Azure.
 
 - The Azure OpenAI Provider requires a deployment as a prerequisite. You can visit their [documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource) to create your own.
-  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant `https://your Azure OpenAI Endpoint`,the API key to access your deployment, the Deployment name of your model and the model name itself.
+  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant `https://your Azure OpenAI Endpoint`,the API key to access your deployment, the deployment name of your model and the model name itself.
 
 - Run the following command to authenticate with Azure OpenAI:
     ```bash
-    k8sgpt auth --backend azureopenai --baseurl https://<your Azure OpenAI endpoint> --engine <deployment_name> --model <model_name>
+    k8sgpt auth add --backend azureopenai --baseurl https://<your Azure OpenAI endpoint> --engine <deployment_name> --model <model_name>
     ```
 - Now you are ready to analyze with the Azure OpenAI backend:
     ```bash
@@ -141,6 +142,22 @@ Google [Gemini](https://blog.google/technology/ai/google-gemini-ai/#performance)
     k8sgpt analyze --explain --backend googlevertexai
     ``` 
 
+## HuggingFace
+
+Hugging Face is a versatile backend for K8sGPT, offering access to a wide range of pre-trained language models. It provides easy-to-use interfaces for both training and inference tasks. Refer to the Hugging Face [documentation](https://huggingface.co/docs) for further insights into model usage and capabilities.
+
+- To use Hugging Face API in K8sGPT, obtain [the API key](https://huggingface.co/settings/tokens).
+- Configure the HuggingFace backend in K8sGPT by specifying the desired model (see all [models](https://huggingface.co/models) here) using auth command:
+    ```bash
+    k8sgpt auth add --backend huggingface --model <model name>
+    ```
+> NOTE: Since the default gpt-3.5-turbo model is not available in Hugging Face, a valid backend model is required.
+
+- Once configured, you can analyze issues within your cluster using the Hugging Face provider with the following command:
+    ```bash
+    k8sgpt analyze --explain --backend huggingface
+    ```
+
 ## LocalAI
 
 LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp and ggml to run inference on consumer-grade hardware. Models supported by LocalAI for instance are Vicuna, Alpaca, LLaMA, Cerebras, GPT4ALL, GPT4ALL-J and koala.
@@ -149,7 +166,7 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 - To start the API server, follow the instruction in [LocalAI](https://github.com/go-skynet/LocalAI#example-use-gpt4all-j-model).
 - Authenticate K8sGPT with LocalAI:
     ```bash
-    k8sgpt auth new --backend localai --model <model_name> --baseurl http://localhost:8080/v1
+    k8sgpt auth add --backend localai --model <model_name> --baseurl http://localhost:8080/v1
     ```
 - Analyze with a LocalAI backend:
     ```bash
@@ -159,7 +176,7 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
-The NoOpAiProvider does not actually perfornm any AI-based operations but simulates them by echoing the input given as a problem.
+The NoOpAiProvider does not actually perform any AI-based operations but simulates them by echoing the input given as a problem.
 
 Follow the steps outlined below to learn how to utilize the NoOpAiProvider:
 

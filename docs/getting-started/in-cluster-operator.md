@@ -73,7 +73,7 @@ Those responses will appear as `details` within the `Result` custom resources th
 The default backend in this example is [OpenAI](https://openai.com/) and allows for additional details to be generated and solutions provided for issues.
 If you wish to disable out-of-cluster communication and any Artificial Intelligence processing through models, simply set `enableAI` to `false`.
 
-_It should also be noted that `localai` and `azureopenai` is supported and in-cluster models will be supported in the near future_
+_It should also be noted that `localai` and `azureopenai` are supported and in-cluster models will be supported in the near future_
 
 ## Viewing the results
 

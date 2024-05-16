@@ -4,7 +4,7 @@ This documentation lists advanced installation options for the K8sGPT Operator.
 
 ## ArgoCD
 
-ArgoCD is a continuous Deployment tool that implements GitOps best practices to install and manage Kubernetes resources.
+ArgoCD is a continuous deployment tool that implements GitOps best practices to install and manage Kubernetes resources.
 
 ### Prerequisites
 
@@ -46,9 +46,9 @@ spec:
       - CreateNamespace=true
 ```
 
-Note: 
+Note:
 
-* Ensure that the `namespace` is correctly set to your ArgoCD namespace
+* Ensure that the `namespace` is correctly set to your ArgoCD namespace.
 * Ensure that the `<VERSION>` is set to the [K8sGPT Operator Release Version](https://github.com/k8sgpt-ai/k8sgpt-operator/releases) that you want to use.
 * Modify the `helm.values` section with the Helm Values that you would like to overwrite. Check the [values.yaml](https://github.com/k8sgpt-ai/k8sgpt-operator/tree/main/chart/operator) file of the Operator for options.
 
@@ -62,7 +62,7 @@ kubectl apply -f application.yaml
 
 You will still need to install the
 
-* K8sGPT Operator CRD 
+* K8sGPT Operator CRD
 * K8sGPT secret to access the AI backend
 
-that are both detailed in the Operator installation page. The above Application resource will only install the Operator pods themselves not additional resources. Note that you could manage those resources also through ArgoCD. Please refer to the official [ArgoCD documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/) for further information.
+that are both detailed in the Operator installation page. The above application resource will only install the Operator pods themselves not additional resources. Note that you could manage those resources also through ArgoCD. Please refer to the official [ArgoCD documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/) for further information.
