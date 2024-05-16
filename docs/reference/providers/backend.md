@@ -2,7 +2,7 @@
 
 A Backend (also called Provider) is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
-Currently, we have a total of 8 backends available:
+Currently, we have a total of 10 backends available:
 
 - [OpenAI](https://openai.com/)
 - [Cohere](https://cohere.com/)
@@ -10,6 +10,8 @@ Currently, we have a total of 8 backends available:
 - [Amazon SageMaker](https://aws.amazon.com/sagemaker/)
 - [Azure OpenAI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
 - [Google Gemini](https://ai.google.dev/docs/gemini_api_overview)
+- [Google Vertex AI](https://cloud.google.com/vertex-ai)
+- [Hugging Face](https://huggingface.co)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
 - FakeAI
 
@@ -23,7 +25,7 @@ OpenAI is the default backend for K8sGPT. We recommend using OpenAI first if you
     ```
 - To set the token in K8sGPT, use the following command:
     ```bash
-    k8sgpt auth add 
+    k8sgpt auth add
     ```
 - Run the following command to analyze issues within your cluster using OpenAI:
     ```bash
@@ -90,7 +92,7 @@ Example how to deploy Amazon SageMaker with cdk is available in [llm-sagemaker-j
 Azure OpenAI Provider provides REST API access to OpenAI's powerful language models. It gives the users an advanced language AI with powerful models with the security and enterprise promise of Azure.
 
 - The Azure OpenAI Provider requires a deployment as a prerequisite. You can visit their [documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource) to create your own.
-  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant `https://your Azure OpenAI Endpoint`,the API key to access your deployment, the Deployment name of your model and the model name itself.
+  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant `https://your Azure OpenAI Endpoint`,the API key to access your deployment, the deployment name of your model and the model name itself.
 
 - Run the following command to authenticate with Azure OpenAI:
     ```bash
@@ -110,11 +112,50 @@ Google [Gemini](https://blog.google/technology/ai/google-gemini-ai/#performance)
 - To use Google Gemini API in K8sGPT, obtain [the API key](https://ai.google.dev/tutorials/setup).
 - To configure Google backend in K8sGPT with `gemini-pro` model (see all [models](https://ai.google.dev/models) here) use auth command:
     ```bash
-    k8sgpt auth add --backend google --model gemini-pro --password "<Your API KEY>"
+    k8sgpt auth add --backend googlevertexai --model gemini-pro --password "<Your API KEY>"
     ```
 - Run the following command to analyze issues within your cluster with the Google provider:
     ```bash
     k8sgpt analyze --explain --backend google
+    ```
+
+## Google Gemini via Vertex AI
+
+Google [Gemini](https://blog.google/technology/ai/google-gemini-ai/#performance) allows generative AI capabilities with multimodal approach (it is capable to understand not only text, but also code, audio, image and video). 
+
+- To use [Google Vertex AI](https://cloud.google.com/vertex-ai?#build-with-gemini) you need to be authorized via [Google Cloud SDK](https://cloud.google.com/sdk/install). 
+    The [Vertex AI API](https://console.cloud.google.com/apis/library/vertex-ai.googleapis.com) needs to be enabled.
+
+> Note: Vertex AI Gemini API is currently available in these [regions](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini?hl=de#http_request), verify if those are working for your environment
+
+- Open a terminal or command prompt and run the following command to authenticate using your Google Cloud credentials:
+    ```bash
+    gcloud auth application-default login
+    ```
+
+- To configure Google backend in K8sGPT with `gemini-pro` model (see all [models](https://ai.google.dev/models) here) use auth command:
+    ```bash
+    k8sgpt auth add --backend googlevertexai --model "gemini-pro" --providerRegion "us-central1" --providerId "<your project id>"
+    ```
+- Run the following command to analyze issues within your cluster with the Google provider:
+    ```bash
+    k8sgpt analyze --explain --backend googlevertexai
+    ``` 
+
+## HuggingFace
+
+Hugging Face is a versatile backend for K8sGPT, offering access to a wide range of pre-trained language models. It provides easy-to-use interfaces for both training and inference tasks. Refer to the Hugging Face [documentation](https://huggingface.co/docs) for further insights into model usage and capabilities.
+
+- To use Hugging Face API in K8sGPT, obtain [the API key](https://huggingface.co/settings/tokens).
+- Configure the HuggingFace backend in K8sGPT by specifying the desired model (see all [models](https://huggingface.co/models) here) using auth command:
+    ```bash
+    k8sgpt auth add --backend huggingface --model <model name>
+    ```
+> NOTE: Since the default gpt-3.5-turbo model is not available in Hugging Face, a valid backend model is required.
+
+- Once configured, you can analyze issues within your cluster using the Hugging Face provider with the following command:
+    ```bash
+    k8sgpt analyze --explain --backend huggingface
     ```
 
 ## LocalAI
@@ -149,7 +190,7 @@ Ollama is a local model, which has an OpenAI compatible API. It supports the mod
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
-The NoOpAiProvider does not actually perfornm any AI-based operations but simulates them by echoing the input given as a problem.
+The NoOpAiProvider does not actually perform any AI-based operations but simulates them by echoing the input given as a problem.
 
 Follow the steps outlined below to learn how to utilize the NoOpAiProvider:
 

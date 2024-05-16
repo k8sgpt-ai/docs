@@ -14,7 +14,7 @@ _Run a scan with the default analyzers_
 
 ```
 k8sgpt generate
-k8sgpt auth new
+k8sgpt auth add
 k8sgpt analyze --explain
 ```
 
