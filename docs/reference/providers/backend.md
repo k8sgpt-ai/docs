@@ -13,6 +13,7 @@ Currently, we have a total of 10 backends available:
 - [Google Vertex AI](https://cloud.google.com/vertex-ai)
 - [Hugging Face](https://huggingface.co)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
+- [Oracle Cloud Infrastructure (OCI) Generative AI](https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service/)
 - FakeAI
 
 ## OpenAI
@@ -186,6 +187,23 @@ Ollama is a local model, which has an OpenAI compatible API. It supports the mod
     ```bash
     k8sgpt analyze --explain --backend localai
     ```
+
+## Oracle Cloud Infrastructure (OCI) Generative AI
+
+[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/) Generative AI s a fully managed OCI service that provides a set of state-of-the-art, customizable large language models.
+K8sgpt can be configured to use ready-to-use pretrained models, or create and host your own fine-tuned custom models based on your own data on dedicated AI clusters.
+
+To authenticate with OCI, create a [OCI SDK/CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm) `config` file in your home directory's `.oci/` directory.
+
+Next, configure the OCI backend for a given model within an OCI compartment:
+```bash
+k8sgpt auth add --backend oci --model <Model OCID> --compartmentId <Compartment OCID>
+```
+
+Analyze using the OCI backend:
+```bash
+k8sgpt anaylze --explain --backend oci
+```
 
 ## FakeAI
 
