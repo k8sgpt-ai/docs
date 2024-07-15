@@ -217,7 +217,7 @@ Follow the steps outlined below to learn how to utilize the NoOpAiProvider:
 
 - Authorize k8sgpt with `noopai` or `noop` as the Backend Provider:
     ```
-    k8sgpt auth -b noopai
+    k8sgpt auth add -b noopai
     ```
 - For the auth token, you can leave it blank as the NoOpAiProvider is configured to work fine with or without any token.
 
