@@ -3,6 +3,8 @@
 In this tutorial, we will learn how to create custom analyzers for K8sGPT.
 We will create a custom analyzer that checks a Linux host for resource issues and provides recommendations.
 
+[Full example code](https://github.com/k8sgpt-ai/go-custom-analyzer)
+
 ### Why?
 
 There are usecases where you might want to create custom analyzers to check for specific issues in your environment. This would be in conjunction with the K8sGPT built-in analyzers.
@@ -14,7 +16,8 @@ For example, you may wish to scan the Kubernetes cluster nodes more deeply to un
 - [Golang](https://golang.org/doc/install) go1.22 or higher
 
 
- ## Writing a simple analyzer
+
+### Writing a simple analyzer
 
  The K8sGPT CLI, operator and custom analyzers all use a GRPC API to communicate with each other. The API is defined in the [buf.build/k8sgpt-ai/k8sgpt](https://buf.build/k8sgpt-ai/k8sgpt/docs/main:schema.v1) repository. Buf is a tool that helps you manage Protobuf files. You can install it by following the instructions [here](https://docs.buf.build/installation).
  Another advantage of buf is that when you import a Protobuf file, it will automatically download the dependencies for you. This is useful when you are working with Protobuf files that have dependencies on other Protobuf files. Additionally, you'll always be able to get the latest version of the Protobuf files.
@@ -167,3 +170,8 @@ To execute the analyzer we can run the following command:
 ```bash
 k8sgpt analyze --custom-analysis
 ```
+
+## What's next?
+
+Now you've got the basics of how to write a custom analyzer, you can extend this to check for other issues on your hosts or in your Kubernetes cluster. You can also create more complex analyzers that check for multiple issues and provide more detailed recommendations.
+
