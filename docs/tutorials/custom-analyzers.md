@@ -150,6 +150,7 @@ func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunR
 	}
 	return response, nil
 }
+```
 
 ### Testing it out
 
