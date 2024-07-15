@@ -17,6 +17,8 @@ nav:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
       - K8sGPT Playground: tutorials/playground.md
+      - Custom Analyzers: tutorials/custom-analyzers.md
+      - Slack Integration: tutorials/slack-integration.md
   - Reference:
       - CLI:
           - Overview: reference/cli/index.md
