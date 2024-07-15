@@ -2,7 +2,7 @@
 
 A Backend (also called Provider) is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
-Currently, we have a total of 10 backends available:
+Currently, we have a total of 11 backends available:
 
 - [OpenAI](https://openai.com/)
 - [Cohere](https://cohere.com/)
@@ -12,6 +12,7 @@ Currently, we have a total of 10 backends available:
 - [Google Gemini](https://ai.google.dev/docs/gemini_api_overview)
 - [Google Vertex AI](https://cloud.google.com/vertex-ai)
 - [Hugging Face](https://huggingface.co)
+- [IBM watsonx.ai](https://www.ibm.com/products/watsonx-ai)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
 - FakeAI
 
@@ -156,6 +157,26 @@ Hugging Face is a versatile backend for K8sGPT, offering access to a wide range 
 - Once configured, you can analyze issues within your cluster using the Hugging Face provider with the following command:
     ```bash
     k8sgpt analyze --explain --backend huggingface
+    ```
+
+## IBM watsonx.ai
+
+IBM® watsonx.ai™ AI studio is part of the IBM watsonx™ AI and data platform, bringing together new generative AI (gen AI) capabilities powered by foundation models and traditional machine learning (ML) into a powerful studio spanning the AI lifecycle. Tune and guide models with your enterprise data to meet your needs with easy-to-use tools for building and refining performant prompts. With watsonx.ai, you can build AI applications in a fraction of the time and with a fraction of the data. 
+
+- To use [IBM watsonx.ai](https://dataplatform.cloud.ibm.com/login?context=wx), you'll need a watsonx API key and project ID for authentication.
+
+- You will need to set the follow local environmental variables:
+    ```
+    - WATSONX_API_KEY
+    - WATSONX_PROJECT_ID
+    ```
+- To configure backend in K8sGPT use auth command:
+    ```bash
+    k8sgpt auth add --backend watsonxai --model ibm/granite-13b-chat-v2
+    ```
+- Run the following command to analyze issues within your cluster using IBM watsonx.ai:
+    ```bash
+    k8sgpt analyze --explain --backend watsonxai
     ```
 
 ## LocalAI
