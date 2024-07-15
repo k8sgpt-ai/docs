@@ -196,7 +196,6 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
     k8sgpt analyze --explain --backend localai
     ```
 
-<<<<<<< HEAD
 ## Oracle Cloud Infrastructure (OCI) Generative AI
 
 [Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/) Generative AI s a fully managed OCI service that provides a set of state-of-the-art, customizable large language models.
@@ -214,7 +213,6 @@ Analyze using the OCI backend:
 k8sgpt anaylze --explain --backend oci
 ```
 
-=======
 ## Ollama (via LocalAI backend)
 
 Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the [Ollama library](https://ollama.com/library). 
