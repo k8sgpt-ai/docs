@@ -248,7 +248,7 @@ Ollama can get up and running locally with large language models. It runs Llama 
     ```bash
     k8sgpt analyze --explain --backend ollama
     ```
->>>>>>> 4a1fbed37eedd35111986d07c99cf340d5653fd6
+
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
