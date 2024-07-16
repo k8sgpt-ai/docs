@@ -140,6 +140,16 @@ services:
 K8sGPT can be installed as an Operator inside the cluster.
 For further information, see the [K8sGPT Operator](in-cluster-operator.md) documentation.
 
+## Installing the K8sGPT Operator via Glasskube
+
+[Glasskube](https://glasskube.dev/) is a Kubernetes package manager that simplifies the installation process of the k8sgpt-operator and automatically ensures it stays up-to-date with the latest version. For detailed instructions on installing Glasskube, refer to the [Glasskube Installation](https://glasskube.dev/docs/getting-started/install/).
+
+Install k8sgpt via the CLI:
+``` 
+glasskube install k8sgpt-operator --value "openaiApiKey=<openApiKeyValue>"
+```
+Alternatively, configure the package via the Glasskube UI, where you can easily customize the operator to anonymize data, choose the output language, and define the OpenAI API key seamlessly.
+
 ## Upgrading the brew installation
 
 To upgrade the K8sGPT brew installation run the following command:
