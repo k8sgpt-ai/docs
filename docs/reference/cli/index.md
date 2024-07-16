@@ -79,14 +79,44 @@ _Deactivate integrations_
 k8sgpt integrations deactivate [integration(s)]
 ```
 
-_Serve mode_
+_Serve mode with GRPC_
 
 ```
 k8sgpt serve
 ```
 
-_Analysis with serve mode_
+_Analysis with GRPC serve mode_
+```
+grpcurl -plaintext localhost:8080 schema.v1.ServerService/Analyze
+```
+
+_Serve mode with GRPC and non-default backend (amazonbedrock)_
 
 ```
-curl -X GET "http://localhost:8080/analyze?namespace=k8sgpt&explain=false"
+k8sgpt serve -b amazonbedrock
+```
+
+_Analysis with GRPC serve mode and non-default backend (amazonbedrock)_
+```
+grpcurl -plaintext -d '{"explain": true, "backend": "amazonbedrock"}' localhost:8080 schema.v1.ServerService/Analyze
+```
+
+_Serve mode with REST API_
+```
+k8sgpt serve --http
+```
+
+_Analysis with REST API serve mode_
+```
+curl -X POST "http://localhost:8080/v1/analyze"
+```
+
+_Serve mode with REST API serve mode and non-default backend (amazonbedrock)_
+```
+k8sgpt serve --http -b amazonbedrock
+```
+
+_Analysis with REST API serve mode and non-default backend (amazonbedrock)_
+```
+curl -X POST "http://localhost:8080/v1/analyze?explain=true&backend=amazonbedrock"
 ```
