@@ -5,22 +5,19 @@ K8sGPT offers integration with other tools. Once an integration is added to K8sG
 * Filters are a way of selecting which resources you wish to be part of your default analysis.
 * Integrations are a way to add resources to the filter list.
 
-
-The first integration that has been added is Trivy.
-[Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scanner, maintained by Aqua Security.
-
-K8sGPT also supports a [Prometheus](https://prometheus.io) integration. Prometheus is an open source monitoring solution.
-
 Use the following command to access all K8sGPT CLI options related to integrations:
 ```bash
 k8sgpt integrations
 ```
 
+
 ## Prerequisites
+
 For using the K8sGPT integrations please ensure that you have the latest version of the [K8sGPT CLI](https://docs.k8sgpt.ai/getting-started/installation/) installed.
 Also, please make sure that you are connected to a Kubernetes cluster.
 
-## Activating a new integration
+
+## Activating an Integration
 
 **Prerequisites**
 
@@ -33,7 +30,11 @@ k8sgpt integrations list
 
 This will provide you with a list of available integrations.
 
+
 ## Trivy
+
+The first integration that has been added is Trivy.
+[Trivy](https://github.com/aquasecurity/trivy) is an open source, cloud native security scanner, maintained by Aqua Security.
 
 Activate the Trivy integration:
 ```bash
@@ -95,6 +96,8 @@ This command will analyze your cluster Vulnerabilities through K8sGPT. Depending
 ```
 
 ## Prometheus
+
+K8sGPT supports a [Prometheus](https://prometheus.io) integration. Prometheus is an open source monitoring solution.
 
 The Prometheus integration does not deploy resources in your cluster. Instead,
 it detects a running Prometheus stack in the provided namespace using the
@@ -264,6 +267,63 @@ k8sgpt analyze --filter EKS
 
 This command analyzes your cluster's EKS resources using K8sGPT. Make sure your EKS cluster is working in the specified namespace. The report's results will vary based on the EKS reports available in your cluster.
 
+
+## Kyverno
+
+[Kyverno](https://kyverno.io/) is a policy engine designed for Kubernetes.
+
+Kyverno must be installed prior to using this integration.
+
+To activate the Kyverno integration:
+```
+k8sgpt integration activate kyverno
+
+k8sgpt integration list
+Active:
+> kyverno
+Unused: 
+> trivy
+> prometheus
+> aws
+> keda
+```
+
+The following filters will become available:
+
+* PolicyReport
+* ClusterPolicyReport
+
+```
+k8sgpt filters list    
+Active: 
+> ClusterPolicyReport (integration)
+> ReplicaSet
+> Service
+> StatefulSet
+> PersistentVolumeClaim
+> ValidatingWebhookConfiguration
+> MutatingWebhookConfiguration
+> PolicyReport (integration)
+> Node
+> Pod
+> Deployment
+> Ingress
+> CronJob
+Unused: 
+> Log
+> GatewayClass
+> Gateway
+> HTTPRoute
+> HorizontalPodAutoScaler
+> PodDisruptionBudget
+> NetworkPolicy
+```
+
+Policy reports are generated and managed by Kyverno. You can learn more about this here https://kyverno.io/docs/policy-reports/.
+
+Kyverno is currently only supported via the CLI, an operator is being developed.
+
+
 ## Adding and removing default filters
 
 _Remove default filters_
@@ -272,7 +332,7 @@ _Remove default filters_
 k8sgpt filters add [filter(s)]
 ```
 
-- Simple filter : `k8sgpt filters add Service`
+- Single filter : `k8sgpt filters add Service`
 - Multiple filters : `k8sgpt filters add Ingress,Pod`
 
 
@@ -284,4 +344,3 @@ k8sgpt filters remove [filter(s)]
 
 - Simple filter : `k8sgpt filters remove Service`
 - Multiple filters : `k8sgpt filters remove Ingress,Pod`
-
