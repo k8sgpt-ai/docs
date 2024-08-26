@@ -154,10 +154,41 @@ func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunR
 
 ### Testing it out
 
-To test this with K8sGPT we need to update the local K8sGPT CLI configuration to point to the custom analyzer. We can do this by running the following command:
+To test this with K8sGPT we need to update the local K8sGPT CLI configuration to point to the custom analyzer.
+
+To get the path of the local configuration:
+```bash
+❯ k8sgpt help
+Kubernetes debugging powered by AI
+
+Usage:
+  k8sgpt [command]
+
+Available Commands:
+  analyze     This command will find problems within your Kubernetes cluster
+  auth        Authenticate with your chosen backend
+  cache       For working with the cache the results of an analysis
+  completion  Generate the autocompletion script for the specified shell
+  filters     Manage filters for analyzing Kubernetes resources
+  generate    Generate Key for your chosen backend (opens browser)
+  help        Help about any command
+  integration Integrate another tool into K8sGPT
+  serve       Runs k8sgpt as a server
+  version     Print the version number of k8sgpt
+
+Flags:
+      --config string        Default config file (`<PATH>`)
+  -h, --help                 help for k8sgpt
+      --kubeconfig string    Path to a kubeconfig. Only required if out-of-cluster.
+      --kubecontext string   Kubernetes context to use. Only required if out-of-cluster.
+
+Use "k8sgpt [command] --help" for more information about a command.
+```
+
+After that, We can do this by running the following command (Please remember to replace the `<PATH>` with the real path):
 
 ```bash
-❯ cat ~/Library/Application\ Support/k8sgpt/k8sgpt.yaml
+❯ cat `<PATH>`
 custom_analyzers:
   - name: Disk Usage
     connection:
