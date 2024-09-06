@@ -1,6 +1,6 @@
 # Getting Started Guide
 
-You can either get started with K8sGPT in your own environment, the details are provided below or you can use our [Playground example on Killrcoda](../tutorials/playground.md).
+You can either get started with K8sGPT in your own environment, the details are provided below or you can use our [Playground example on Killercoda](../tutorials/playground.md).
 
 !!! tip
     Please only use K8sGPT on environments where you are authorized to modify Kubernetes resources.
