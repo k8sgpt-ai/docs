@@ -1,6 +1,6 @@
 # K8sGPT Playground
 
-If you want to try out K8sGPT, we highly suggest you to follow this Killrcoda example:
+If you want to try out K8sGPT, we highly suggest you to follow this Killercoda example:
 
 Link: [**K8sGPT CLI Tutorial**](https://killercoda.com/matthisholleville/scenario/k8sgpt-cli)
 
