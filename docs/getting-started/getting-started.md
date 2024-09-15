@@ -167,7 +167,8 @@ Congratulations! you have successfully created a local kubernetes cluster, deplo
 
 If you get the following error message, please make sure to add some credits to your openai account.
 
-You can find the instruction on how to do that at https://help.openai.com/en/articles/8264644-how-can-i-set-up-prepaid-billing
+You can find the instruction on how to do that [here](https://help.openai.com/en/articles/8264644-how-can-i-set-up-prepaid-billing)
+
 
 `
 Error: exhausted API quota for AI provider openai: error, status code: 429, message: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
