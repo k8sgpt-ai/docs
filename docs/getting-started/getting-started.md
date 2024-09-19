@@ -171,5 +171,5 @@ Error: exhausted API quota for AI provider openai: error, status code: 429
 message: You exceeded your current quota, please check your plan and billing details.
 For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 ```
-then please make sure to add some credits to your OpenAI account.
+Then please make sure to add some credits to your OpenAI account.
 ---
