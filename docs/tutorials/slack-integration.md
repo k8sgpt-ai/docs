@@ -31,7 +31,7 @@ metadata:
 spec:
   ai:
     enabled: true
-    model: gpt-3.5-turbo
+    model: gpt-4o-mini
     backend: openai
     secret:
       name: k8sgpt-sample-secret

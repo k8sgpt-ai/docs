@@ -42,7 +42,7 @@ metadata:
 spec:
   ai:
     enabled: true
-    model: gpt-3.5-turbo
+    model: gpt-4o-mini
     backend: openai
     secret:
       name: k8sgpt-sample-secret
@@ -50,7 +50,7 @@ spec:
     # anonymized: false
     # language: english
   noCache: false
-  version: v0.3.17
+  version: v0.3.41
   # filters:
   #   - Ingress
   # sink:
@@ -62,7 +62,7 @@ spec:
 EOF
 ```
 
-Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.17`.
+Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.41`.
 
 ### Regarding out-of-cluster traffic to AI backends
 
