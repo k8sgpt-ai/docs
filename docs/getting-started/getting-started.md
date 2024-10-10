@@ -84,7 +84,7 @@ Copy the token for the next step.
 Then, authenticate with the following command:
 
 ```bash
-k8sgpt auth add --backend openai --model gpt-3.5-turbo
+k8sgpt auth add --backend openai --model gpt-4o-mini
 ```
 
 This will request the token that has just been generated. Paste the token into the command line.

@@ -19,7 +19,7 @@ Currently, we have a total of 11 backends available:
 
 ## OpenAI
 
-OpenAI is the default backend for K8sGPT. We recommend using OpenAI first if you are new to K8sGPT and if you have an account on [OpenAI](https://openai.com/). OpenAI comes with the access to powerful language models such as GPT-3.5-Turbo, GPT-4. If you are looking for a powerful and easy-to-use language modeling service, OpenAI is a great option.
+OpenAI is the default backend for K8sGPT. We recommend using OpenAI first if you are new to K8sGPT and if you have an account on [OpenAI](https://openai.com/). OpenAI comes with the access to powerful language models such as GPT-4. If you are looking for a powerful and easy-to-use language modeling service, OpenAI is a great option.
 
 - To use OpenAI you'll need an OpenAI token for authentication purposes. To generate a token use:
     ```bash
@@ -153,7 +153,7 @@ Hugging Face is a versatile backend for K8sGPT, offering access to a wide range 
     ```bash
     k8sgpt auth add --backend huggingface --model <model name>
     ```
-> NOTE: Since the default gpt-3.5-turbo model is not available in Hugging Face, a valid backend model is required.
+> NOTE: Since the default gpt-4o-mini model is not available in Hugging Face, a valid backend model is required.
 
 - Once configured, you can analyze issues within your cluster using the Hugging Face provider with the following command:
     ```bash
