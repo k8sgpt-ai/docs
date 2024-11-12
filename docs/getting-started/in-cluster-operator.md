@@ -80,7 +80,7 @@ _It should also be noted that `localai` and `azureopenai` are supported and in-c
 Once the initial scans have been completed after several minutes, you will be presented with results custom resources.
 
 ```bash
-❯ kubectl get results -o json | jq .
+❯ kubectl get results -n k8sgpt-operator-system -o json | jq .
 {
   "apiVersion": "v1",
   "items": [
