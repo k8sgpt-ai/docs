@@ -24,6 +24,7 @@ nav:
           - Overview: reference/cli/index.md
           - Integration and Filter: reference/cli/filters.md
           - Serve mode: reference/cli/serve-mode.md
+          - Debugging: reference/cli/debugging.md
       - Providers:
           - Overview: reference/providers/backend.md
       - Operator:
