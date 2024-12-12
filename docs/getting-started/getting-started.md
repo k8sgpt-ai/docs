@@ -47,6 +47,8 @@ Available Commands:
   auth        Authenticate with your chosen backend
   cache       For working with the cache the results of an analysis
   completion  Generate the autocompletion script for the specified shell
+  custom-analyzer Manage a custom analyzer
+  dump            Creates a dumpfile for debugging issues with K8sGPT
   filters     Manage filters for analyzing Kubernetes resources
   generate    Generate Key for your chosen backend (opens browser)
   help        Help about any command
