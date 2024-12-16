@@ -20,6 +20,7 @@ nav:
       - Custom Analyzers: tutorials/custom-analyzers.md
       - Slack Integration: tutorials/slack-integration.md
       - Observability: tutorials/observability.md
+      - Custom Rest Backend: tutorials/custom-rest-backend.md
   - Reference:
       - CLI:
           - Overview: reference/cli/index.md
