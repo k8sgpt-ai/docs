@@ -19,6 +19,7 @@ nav:
       - K8sGPT Playground: tutorials/playground.md
       - Custom Analyzers: tutorials/custom-analyzers.md
       - Slack Integration: tutorials/slack-integration.md
+      - Observability: tutorials/observability.md
   - Reference:
       - CLI:
           - Overview: reference/cli/index.md
