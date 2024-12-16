@@ -202,7 +202,7 @@ Ollama is a local model, which has an OpenAI compatible API. It supports the mod
 - To start the API server, follow the instruction in the [Ollama docs](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart).
 - Authenticate K8sGPT with LocalAI:
     ```bash
-    k8sgpt auth add --backend localai --model <model_name> --baseurl http://localhost:11434/v1
+    k8sgpt auth add --backend localai --model <model_name> --baseurl http://localhost:11434
     ```
 - Analyze with a LocalAI backend:
     ```bash
@@ -224,7 +224,7 @@ Ollama can get up and running locally with large language models. It runs Llama 
 
 - Authenticate K8sGPT with Ollama:
     ```bash
-    k8sgpt auth add --backend ollama --model llama2 --baseurl http://localhost:11434/v1
+    k8sgpt auth add --backend ollama --model llama2 --baseurl http://localhost:11434
     ```
 - Analyze with a Ollama backend:
     ```bash
