@@ -7,7 +7,6 @@ Have a look at the K8sGPT blog on the [website.](https://k8sgpt.ai/blog/)
 
 Additionally, here are several blogs created by the community:
 
-* [K8sGPT: The Ultimate Tool for Kubernetes Scanning](https://blog.wemakedevs.org/k8sgpt) by Rakshit Gondwal
 * [K8sGPT + LocalAI: Unlock Kubernetes superpowers for free!](https://itnext.io/k8sgpt-localai-unlock-kubernetes-superpowers-for-free-584790de9b65) by Tyler Gillson
 * [K8sGPT: Simplifying Kubernetes Diagnostics with Natural Language Processing](https://www.kubetools.io/kubernetes/k8sgpt-simplifying-kubernetes-diagnostics-with-natural-language-processing/) by Karan Singh
 * [Kubernetes + ChatGPT = K8sGpt](https://medium.com/@vijulpatel865/kubernetes-chatgpt-k8sgpt-a9199363dd38) by Vijul Patel
