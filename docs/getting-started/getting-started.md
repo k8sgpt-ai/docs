@@ -1,6 +1,6 @@
 # Getting Started Guide
 
-You can either get started with K8sGPT in your own environment, the details are provided below or you can use our [Playground example on Killrcoda](../tutorials/playground.md).
+You can either get started with K8sGPT in your own environment, the details are provided below or you can use our [Playground example on Killercoda](../tutorials/playground.md).
 
 !!! tip
     Please only use K8sGPT on environments where you are authorized to modify Kubernetes resources.
@@ -47,6 +47,8 @@ Available Commands:
   auth        Authenticate with your chosen backend
   cache       For working with the cache the results of an analysis
   completion  Generate the autocompletion script for the specified shell
+  custom-analyzer Manage a custom analyzer
+  dump            Creates a dumpfile for debugging issues with K8sGPT
   filters     Manage filters for analyzing Kubernetes resources
   generate    Generate Key for your chosen backend (opens browser)
   help        Help about any command
@@ -84,7 +86,7 @@ Copy the token for the next step.
 Then, authenticate with the following command:
 
 ```bash
-k8sgpt auth add --backend openai --model gpt-3.5-turbo
+k8sgpt auth add --backend openai --model gpt-4o-mini
 ```
 
 This will request the token that has just been generated. Paste the token into the command line.

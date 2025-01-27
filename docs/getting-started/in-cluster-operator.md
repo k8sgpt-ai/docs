@@ -42,7 +42,7 @@ metadata:
 spec:
   ai:
     enabled: true
-    model: gpt-3.5-turbo
+    model: gpt-4o-mini
     backend: openai
     secret:
       name: k8sgpt-sample-secret
@@ -50,7 +50,7 @@ spec:
     # anonymized: false
     # language: english
   noCache: false
-  version: v0.3.17
+  version: v0.3.41
   # filters:
   #   - Ingress
   # sink:
@@ -62,7 +62,7 @@ spec:
 EOF
 ```
 
-Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.17`.
+Please replace the `<VERSION>` field with the [current release of K8sGPT](https://github.com/k8sgpt-ai/k8sgpt/releases). At the time of writing this is `v0.3.41`.
 
 ### Regarding out-of-cluster traffic to AI backends
 
@@ -80,7 +80,7 @@ _It should also be noted that `localai` and `azureopenai` are supported and in-c
 Once the initial scans have been completed after several minutes, you will be presented with results custom resources.
 
 ```bash
-❯ kubectl get results -n k8sgpt-operator-system -o json | jq .
+❯ kubectl get results -o json -n k8sgpt-operator-system| jq .
 {
   "apiVersion": "v1",
   "items": [
@@ -91,7 +91,7 @@ Once the initial scans have been completed after several minutes, you will be pr
         "creationTimestamp": "2023-04-26T09:45:02Z",
         "generation": 1,
         "name": "placementoperatorsystemplacementoperatorcontrollermanagermetricsservice",
-        "namespace": "default",
+        "namespace": "k8sgpt-operator-system",
         "resourceVersion": "108371",
         "uid": "f0edd4de-92b6-4de2-ac86-5bb2b2da9736"
       },

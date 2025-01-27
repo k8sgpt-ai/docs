@@ -19,11 +19,14 @@ nav:
       - K8sGPT Playground: tutorials/playground.md
       - Custom Analyzers: tutorials/custom-analyzers.md
       - Slack Integration: tutorials/slack-integration.md
+      - Observability: tutorials/observability.md
+      - Custom Rest Backend: tutorials/custom-rest-backend.md
   - Reference:
       - CLI:
           - Overview: reference/cli/index.md
           - Integration and Filter: reference/cli/filters.md
           - Serve mode: reference/cli/serve-mode.md
+          - Debugging: reference/cli/debugging.md
       - Providers:
           - Overview: reference/providers/backend.md
       - Operator:
