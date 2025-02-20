@@ -2,7 +2,7 @@
 
 A Backend (also called Provider) is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
-Currently, we have a total of 11 backends available:
+Currently, we have a total of 12 backends available:
 
 - [OpenAI](https://openai.com/)
 - [Cohere](https://cohere.com/)
@@ -14,6 +14,7 @@ Currently, we have a total of 11 backends available:
 - [Hugging Face](https://huggingface.co)
 - [IBM watsonx.ai](https://www.ibm.com/products/watsonx-ai)
 - [LocalAI](https://github.com/go-skynet/LocalAI)
+- [Oracle Cloud Infrastructure (OCI) Generative AI](https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service/)
 - [Ollama](https://github.com/ollama/ollama)
 - FakeAI
 
@@ -195,6 +196,23 @@ LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp a
     k8sgpt analyze --explain --backend localai
     ```
 
+## Oracle Cloud Infrastructure (OCI) Generative AI
+
+[Oracle Cloud Infrastructure (OCI)](https://www.oracle.com/cloud/) Generative AI s a fully managed OCI service that provides a set of state-of-the-art, customizable large language models.
+K8sgpt can be configured to use ready-to-use pretrained models, or create and host your own fine-tuned custom models based on your own data on dedicated AI clusters.
+
+To authenticate with OCI, create a [OCI SDK/CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm) `config` file in your home directory's `.oci/` directory.
+
+Next, configure the OCI backend for a given model within an OCI compartment:
+```bash
+k8sgpt auth add --backend oci --model <Model OCID> --compartmentId <Compartment OCID>
+```
+
+Analyze using the OCI backend:
+```bash
+k8sgpt anaylze --explain --backend oci
+```
+
 ## Ollama (via LocalAI backend)
 
 Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the [Ollama library](https://ollama.com/library). 
@@ -230,6 +248,7 @@ Ollama can get up and running locally with large language models. It runs Llama 
     ```bash
     k8sgpt analyze --explain --backend ollama
     ```
+
 ## FakeAI
 
 FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
