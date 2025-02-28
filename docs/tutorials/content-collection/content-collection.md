@@ -12,7 +12,7 @@ Additionally, here are several blogs created by the community:
 * [Kubernetes + ChatGPT = K8sGpt](https://medium.com/@vijulpatel865/kubernetes-chatgpt-k8sgpt-a9199363dd38) by Vijul Patel
 * [ChatGPT for your Kubernetes Cluster — k8sgpt](https://medium.com/techbeatly/chatgpt-for-your-kubernetes-cluster-k8sgpt-649f2cad1bd5) by Renjith Ravindranathan
 * [Using the Trivy K8sGPT plugin](https://medium.com/techbeatly/k8sgpt-integration-with-aquasec-trivy-22f53c6730bb) by Renjith Ravindranathan
-* [K8s SRE Copilot: AI-Powered Live Troubleshooting Kubernetes Clusters with RAG AI Agent with DeepSeek & k8sgpt](https://www.linkedin.com/pulse/k8s-sre-copilot-ai-powered-live-troubleshooting-kubernetes-yeshc/) by Rajesh Gheware
+* [K8S SRE Copilot: AI-Powered Live Troubleshooting Kubernetes Clusters with RAG AI Agent with DeepSeek & k8sgpt](https://www.linkedin.com/pulse/k8s-sre-copilot-ai-powered-live-troubleshooting-kubernetes-yeshc/) by Rajesh Gheware
 
 ## Videos
 
