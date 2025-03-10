@@ -5,7 +5,7 @@ We will create a custom analyzer that checks a Linux host for resource issues an
 
 [Full example code](https://github.com/k8sgpt-ai/go-custom-analyzer)
 
-### Why?
+## Why?
 
 There are usecases where you might want to create custom analyzers to check for specific issues in your environment. This would be in conjunction with the K8sGPT built-in analyzers.
 For example, you may wish to scan the Kubernetes cluster nodes more deeply to understand if there are underlying issues that are related to issues in the cluster.
@@ -14,8 +14,6 @@ For example, you may wish to scan the Kubernetes cluster nodes more deeply to un
 
 - [K8sGPT CLI](https://github.com/k8sgpt-ai/k8sgpt.git)
 - [Golang](https://golang.org/doc/install) go1.22 or higher
-
-
 
 ### Writing a simple analyzer
 
@@ -39,18 +37,19 @@ Once we have this structure let's create a simple main.go file with the followin
 package main
 
 import (
-	rpc "buf.build/gen/go/k8sgpt-ai/k8sgpt/grpc/go/schema/v1/schemav1grpc"
 	"errors"
 	"fmt"
+	"net"
+	"net/http"
+
+	rpc "buf.build/gen/go/k8sgpt-ai/k8sgpt/grpc/go/schema/v1/schemav1grpc"
 	"github.com/k8sgpt-ai/go-custom-analyzer/pkg/analyzer"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"net"
-	"net/http"
 )
 
 func main() {
-
+	fmt.Println("Starting!")
 	var err error
 	address := fmt.Sprintf(":%s", "8085")
 	lis, err := net.Listen("tcp", address)
@@ -60,7 +59,7 @@ func main() {
 	grpcServer := grpc.NewServer()
 	reflection.Register(grpcServer)
 	aa := analyzer.Analyzer{}
-	rpc.RegisterAnalyzerServiceServer(grpcServer, aa.Handler)
+	rpc.RegisterCustomAnalyzerServiceServer(grpcServer, aa.Handler)
 	if err := grpcServer.Serve(
 		lis,
 	); err != nil && !errors.Is(err, http.ErrServerClosed) {
@@ -70,7 +69,8 @@ func main() {
 ```
 
 The most important part of this file is here:
-```
+
+```go
 aa := analyzer.Analyzer{}
 	rpc.RegisterAnalyzerServiceServer(grpcServer, aa.Handler)
 ```
@@ -89,21 +89,23 @@ Now let's create the `analyzer.go` file with the following content:
 package analyzer
 
 import (
+	"context"
+	"fmt"
+
 	rpc "buf.build/gen/go/k8sgpt-ai/k8sgpt/grpc/go/schema/v1/schemav1grpc"
 	v1 "buf.build/gen/go/k8sgpt-ai/k8sgpt/protocolbuffers/go/schema/v1"
-	"context"
+	"github.com/ricochet2200/go-disk-usage/du"
 )
 
 type Handler struct {
-	rpc.AnalyzerServiceServer
+	rpc.CustomAnalyzerServiceServer
 }
 type Analyzer struct {
 	Handler *Handler
 }
 
-func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunResponse, error) {
-
-	response := &v1.AnalyzerRunResponse{
+func (a *Handler) Run(context.Context, *v1.RunRequest) (*v1.RunResponse, error) {
+	response := &v1.RunResponse{
 		Result: &v1.Result{
 			Name:    "example",
 			Details: "example",
@@ -120,7 +122,7 @@ func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunR
 ```
 
 This file contains the `Handler` struct which implements the `Run` method. This method is called when the analyzer is run. In this example, we are returning an error message.
-The `Run` method takes a context and an `AnalyzerRunRequest` as arguments and returns an `AnalyzerRunResponse` and an error. Find the API available [here](https://buf.build/k8sgpt-ai/k8sgpt/file/main:schema/v1/analyzer.proto#L16).
+The `Run` method takes a context and an `RunRequest` as arguments and returns an `RunResponse` and an error. Find the API available [here](https://buf.build/k8sgpt-ai/k8sgpt/file/1379a5a1889d4bf49494b2e2b8e36164:schema/v1/custom_analyzer.proto).
 
 ### Implementing some custom logic
 
@@ -128,27 +130,21 @@ Now that we have the basic structure in place, let's implement some custom logic
 
 ```go
 // analyzer.go
-import "github.com/ricochet2200/go-disk-usage/du"
-var KB = uint64(1024)
-func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunResponse, error) {
-
+func (a *Handler) Run(context.Context, *v1.RunRequest) (*v1.RunResponse, error) {
+	println("Running analyzer")
 	usage := du.NewDiskUsage("/")
 	diskUsage := int((usage.Size() - usage.Free()) * 100 / usage.Size())
-	var response = &v1.AnalyzerRunResponse{}
-	if diskUsage > 90 {
-		response = &v1.AnalyzerRunResponse{
-			Result: &v1.Result{
-				Name:    "Disk Usage",
-				Details: "Disk usage is above 90%",
-				Error: []*v1.ErrorDetail{
-					&v1.ErrorDetail{
-						Text: "Disk usage is above 90%",
-					},
+	return &v1.RunResponse{
+		Result: &v1.Result{
+			Name:    "diskuse",
+			Details: fmt.Sprintf("Disk usage is %d", diskUsage),
+			Error: []*v1.ErrorDetail{
+				{
+					Text: fmt.Sprintf("Disk usage is %d", diskUsage),
 				},
 			},
-		}
-	}
-	return response, nil
+		},
+	}, nil
 }
 ```
 
@@ -157,16 +153,26 @@ func (a *Handler) Run(context.Context, *v1.AnalyzerRunRequest) (*v1.AnalyzerRunR
 To test this with K8sGPT we need to update the local K8sGPT CLI configuration to point to the custom analyzer. We can do this by running the following command:
 
 ```bash
-❯ cat ~/Library/Application\ Support/k8sgpt/k8sgpt.yaml
-custom_analyzers:
-  - name: Disk Usage
-    connection:
-      url: localhost
-      port: 8085
+k8sgpt custom-analyzer add -n diskuse
 ```
 
-This will add the custom analyzer to the list of available analyzers in the K8sGPT CLI.
+This will add the custom analyzer `diskuse` to the list of available analyzers in the K8sGPT CLI.
+
+```bash
+k8sgpt custom-analyzer list
+Active:
+> diskuse
+```
+
 To execute the analyzer we can run the following command:
+
+- run the customer analyzer
+
+```bash
+go run main.go
+```
+
+- execute the analyzer
 
 ```bash
 k8sgpt analyze --custom-analysis
@@ -175,4 +181,3 @@ k8sgpt analyze --custom-analysis
 ## What's next?
 
 Now you've got the basics of how to write a custom analyzer, you can extend this to check for other issues on your hosts or in your Kubernetes cluster. You can also create more complex analyzers that check for multiple issues and provide more detailed recommendations.
-
