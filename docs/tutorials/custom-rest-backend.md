@@ -2,6 +2,97 @@
 This tutorial guides you through the process of integrating a custom backend with k8sgpt using RESTful API. This setup is particularly useful when you want to integrate Retrieval-Augmented Generation (RAG) or an AI Agent with k8sgpt.
 In this tutorial, we will store a CNCF Q&A dataset for knowledge retrieval and  create a simple Retrieval-Augmented Generation (RAG) application and integrate it with k8sgpt. 
 
+## API Specification
+To ensure k8sgpt can interact with your custom backend, implement the following API endpoint using the OpenAPI schema:
+
+### OpenAPI Specification
+```yaml
+openapi: 3.0.0
+info:
+  title: Custom REST Backend API
+  version: 1.0.0
+paths:
+  /v1/completions:
+    post:
+      summary: Generate a text-based response from the custom backend
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: The name of the model to use.
+                prompt:
+                  type: string
+                  description: The textual prompt to send to the model.
+                options:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  description: Model-specific options, such as temperature.
+              required:
+                - model
+                - prompt
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  model:
+                    type: string
+                    description: The model name that generated the response.
+                  created_at:
+                    type: string
+                    format: date-time
+                    description: The timestamp of the response.
+                  response:
+                    type: string
+                    description: The textual response itself.
+                required:
+                  - model
+                  - created_at
+                  - response
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+```
+### Example Interaction
+
+#### Request
+```json
+{
+  "model": "gpt-4",
+  "prompt": "Explain the process of photosynthesis.",
+  "options": {
+    "temperature": 0.7,
+    "max_tokens": 150
+  }
+}
+```
+
+#### Response
+```json
+{
+  "model": "gpt-4",
+  "created_at": "2025-01-14T10:00:00Z",
+  "response": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll."
+}
+```
+
+### Implementation Notes
+
+- **Endpoint Configuration**: Ensure the /v1/completions endpoint is reachable and adheres to the provided schema.
+
+- **Error Handling**: Implement robust error handling to manage invalid requests or processing failures.
+
+By following this specification, your custom REST service will seamlessly integrate with k8sgpt, enabling powerful and customizable AI-driven functionalities.
 ## Prerequisites
 
 - [K8sGPT CLI](https://github.com/k8sgpt-ai/k8sgpt.git)
@@ -54,7 +145,7 @@ var (
 func main() {
 	server := gin.Default()
 	server.POST("/completion", func(c *gin.Context) {
-		var req K8sRagRequest
+		var req CustomRestRequest
 		if err := c.ShouldBindJSON(&req); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
@@ -64,7 +155,7 @@ func main() {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
-		resp := K8sRagResponse{
+		resp := CustomRestResponse{
 			Model:     req.Model,
 			CreatedAt: time.Now(),
 			Response:  content,
@@ -190,7 +281,7 @@ func rag(serverURL string, req CustomRestRequest) (string, error) {
 
 	// generate content by LLM
 	ragPromptTemplate := `Base on context: %s;
-	Please generate a response to the following query and response doen't include context, if context is empty, generate a response using the model's knowledge and capabilities: \n %s`
+	Please generate a response to the following query and response doesn't include context, if context is empty, generate a response using the model's knowledge and capabilities: \n %s`
 	prompt := fmt.Sprintf(ragPromptTemplate, strings.Join(x, "; "), req.Prompt)
 	ctx := context.Background()
 	completion, err := llms.GenerateFromSinglePrompt(ctx, llm, prompt)
