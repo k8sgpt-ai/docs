@@ -165,11 +165,11 @@ Congratulations! you have successfully created a local kubernetes cluster, deplo
 ---
 **NOTE**
 
-If you see the following error message,
+If you see the following error message:
 ```bash
 Error: exhausted API quota for AI provider openai: error, status code: 429
 message: You exceeded your current quota, please check your plan and billing details.
 For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 ```
-Then please make sure to add some credits to your OpenAI account.
+Please make sure to add some credits to your OpenAI account.
 ---
