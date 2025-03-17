@@ -1,0 +1,1802 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="K8sGPT gives Kubernetes SRE superpowers to everyone">
+      
+      
+      
+        <link rel="canonical" href="https://k8sgpt.ai/docs/reference/providers/backend/">
+      
+      
+        <link rel="prev" href="../../cli/debugging/">
+      
+      
+        <link rel="next" href="../../operator/overview/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Overview - k8sgpt</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#k8sgpt-ai-backends" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="k8sgpt" class="md-header__button md-logo" aria-label="k8sgpt" data-md-component="logo">
+      
+  <img src="../../../imgs/icon-logo-01.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            k8sgpt
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/k8sgpt-ai/k8sgpt" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorials/" class="md-tabs__link">
+          
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../cli/" class="md-tabs__link">
+          
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../explanation/integrations/" class="md-tabs__link">
+          
+  
+  Explanation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="k8sgpt" class="md-nav__button md-logo" aria-label="k8sgpt" data-md-component="logo">
+      
+  <img src="../../../imgs/icon-logo-01.svg" alt="logo">
+
+    </a>
+    k8sgpt
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/k8sgpt-ai/k8sgpt" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/in-cluster-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    In-Cluster Operator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/Community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Community
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/content-collection/content-collection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Collection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/playground/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K8sGPT Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/custom-analyzers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Analyzers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/slack-integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/observability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Observability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/custom-rest-backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Rest Backend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/filters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integration and Filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/serve-mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serve mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Providers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Providers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cohere" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cohere
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-bedrock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Bedrock
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon SageMaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure OpenAI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Gemini
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-gemini-via-vertex-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Gemini via Vertex AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#huggingface" class="md-nav__link">
+    <span class="md-ellipsis">
+      HuggingFace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibm-watsonxai" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM watsonx.ai
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localai" class="md-nav__link">
+    <span class="md-ellipsis">
+      LocalAI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ollama-via-localai-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ollama (via LocalAI backend)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ollama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ollama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fakeai" class="md-nav__link">
+    <span class="md-ellipsis">
+      FakeAI
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Operator
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Operator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator/advanced-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Installation Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Guidelines & Community
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Guidelines & Community
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guidelines/guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guidelines/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Community
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guidelines/privacy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Privacy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Explanation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Explanation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explanation/integrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explanation/caching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cohere" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cohere
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-bedrock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Bedrock
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon SageMaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Azure OpenAI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Gemini
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-gemini-via-vertex-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Gemini via Vertex AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#huggingface" class="md-nav__link">
+    <span class="md-ellipsis">
+      HuggingFace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibm-watsonxai" class="md-nav__link">
+    <span class="md-ellipsis">
+      IBM watsonx.ai
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localai" class="md-nav__link">
+    <span class="md-ellipsis">
+      LocalAI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ollama-via-localai-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ollama (via LocalAI backend)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ollama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ollama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fakeai" class="md-nav__link">
+    <span class="md-ellipsis">
+      FakeAI
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="k8sgpt-ai-backends">K8sGPT AI Backends</h1>
+<p>A Backend (also called Provider) is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.</p>
+<p>Currently, we have a total of 11 backends available:</p>
+<ul>
+<li><a href="https://openai.com/">OpenAI</a></li>
+<li><a href="https://cohere.com/">Cohere</a></li>
+<li><a href="https://aws.amazon.com/bedrock/">Amazon Bedrock</a></li>
+<li><a href="https://aws.amazon.com/sagemaker/">Amazon SageMaker</a></li>
+<li><a href="https://azure.microsoft.com/en-us/products/cognitive-services/openai-service">Azure OpenAI</a></li>
+<li><a href="https://ai.google.dev/docs/gemini_api_overview">Google Gemini</a></li>
+<li><a href="https://cloud.google.com/vertex-ai">Google Vertex AI</a></li>
+<li><a href="https://huggingface.co">Hugging Face</a></li>
+<li><a href="https://www.ibm.com/products/watsonx-ai">IBM watsonx.ai</a></li>
+<li><a href="https://github.com/go-skynet/LocalAI">LocalAI</a></li>
+<li><a href="https://github.com/ollama/ollama">Ollama</a></li>
+<li>FakeAI</li>
+</ul>
+<h2 id="openai">OpenAI</h2>
+<p>OpenAI is the default backend for K8sGPT. We recommend using OpenAI first if you are new to K8sGPT and if you have an account on <a href="https://openai.com/">OpenAI</a>. OpenAI comes with the access to powerful language models such as GPT-4. If you are looking for a powerful and easy-to-use language modeling service, OpenAI is a great option.</p>
+<ul>
+<li>To use OpenAI you'll need an OpenAI token for authentication purposes. To generate a token use:
+    <code>bash
+    k8sgpt generate</code></li>
+<li>To set the token in K8sGPT, use the following command:
+    <code>bash
+    k8sgpt auth add</code></li>
+<li>Run the following command to analyze issues within your cluster using OpenAI:
+    <code>bash
+    k8sgpt analyze --explain</code></li>
+</ul>
+<h2 id="cohere">Cohere</h2>
+<p>Cohere allows building conversational apps. It uses Retrieval Augmented Generation (RAG) toolkit that improves LLM's answer accuracy.</p>
+<ul>
+<li>To use Cohere, visit <a href="https://dashboard.cohere.ai/api-keys">Cohere dashboard</a>.</li>
+<li>To configure backend in K8sGPT, use the following command:
+    <code>bash
+    k8sgpt auth add --backend cohere --model command-nightly</code></li>
+<li>Run the following command to analyze issues within your cluster using Cohere:
+    <code>bash
+    k8sgpt analyze --explain --backend cohere</code></li>
+</ul>
+<h2 id="amazon-bedrock">Amazon Bedrock</h2>
+<p>Amazon Bedrock allows building and scaling generative AI applications.</p>
+<ul>
+<li>To use Bedrock, make sure you have access to Bedrock API and models e.g. in AWS Console you should see something like this:</li>
+</ul>
+<p><img alt="Bedrock" src="../../../imgs/bedrock.png" /></p>
+<ul>
+<li>
+<p>You will need to set the follow local environmental variables:
+    ```</p>
+<ul>
+<li>AWS_ACCESS_KEY</li>
+<li>AWS_SECRET_ACCESS_KEY</li>
+<li>AWS_DEFAULT_REGION
+```</li>
+</ul>
+</li>
+<li>
+<p>To configure backend in K8sGPT use auth command:
+    <code>bash
+    k8sgpt auth add --backend amazonbedrock --model anthropic.claude-v2</code></p>
+</li>
+<li>Run the following command to analyze issues within your cluster using Amazon Bedrock:
+    <code>bash
+    k8sgpt analyze --explain --backend amazonbedrock</code></li>
+</ul>
+<h2 id="amazon-sagemaker">Amazon SageMaker</h2>
+<p>The Amazon SageMaker backend allows you to leverage a self-deployed and managed Language Models (LLM) on Amazon SageMaker.</p>
+<p>Example how to deploy Amazon SageMaker with cdk is available in <a href="https://github.com/zaremb/llm-sagemaker-jumpstart-cdk">llm-sagemaker-jumpstart-cdk</a> repo.</p>
+<ul>
+<li>To use SageMaker, make sure you have <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">the AWS CLI configured on your machine</a>.</li>
+<li>You need to have <a href="https://github.com/zaremb/llm-sagemaker-jumpstart-cdk">an Amazon SageMaker instance set up</a>.</li>
+<li>Run the following command to add SageMaker:
+    <code>bash
+    k8sgpt auth add --backend amazonsagemaker --providerRegion eu-west-1 --endpointname endpoint-xxxxxxxxxx</code></li>
+<li>Now you are ready to analyze with the Amazon SageMaker backend:
+    <code>bash
+    k8sgpt analyze --explain --backend amazonsagemaker</code></li>
+</ul>
+<h2 id="azure-openai">Azure OpenAI</h2>
+<p>Azure OpenAI Provider provides REST API access to OpenAI's powerful language models. It gives the users an advanced language AI with powerful models with the security and enterprise promise of Azure.</p>
+<ul>
+<li>
+<p>The Azure OpenAI Provider requires a deployment as a prerequisite. You can visit their <a href="https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource">documentation</a> to create your own.
+  To authenticate with k8sgpt, you would require an Azure OpenAI endpoint of your tenant <code>https://your Azure OpenAI Endpoint</code>,the API key to access your deployment, the deployment name of your model and the model name itself.</p>
+</li>
+<li>
+<p>Run the following command to authenticate with Azure OpenAI:
+    <code>bash
+    k8sgpt auth add --backend azureopenai --baseurl https://&lt;your Azure OpenAI endpoint&gt; --engine &lt;deployment_name&gt; --model &lt;model_name&gt;</code></p>
+</li>
+<li>Now you are ready to analyze with the Azure OpenAI backend:
+    <code>bash
+    k8sgpt analyze --explain --backend azureopenai</code></li>
+</ul>
+<h2 id="google-gemini">Google Gemini</h2>
+<p>Google <a href="https://blog.google/technology/ai/google-gemini-ai/#performance">Gemini</a> allows generative AI capabilities with multimodal approach (it is capable to understand not only text, but also code, audio, image and video). With Gemini models, a new <a href="https://ai.google.dev/docs/gemini_api_overview">API</a> was introduced, and this is what is now built-in K8sGPT. This API also works against the <a href="https://ai.google.dev/docs/migrate_to_cloud">Google Cloud Vertex AI</a> service. See also <a href="https://ai.google.dev/tutorials/ai-studio_quickstart">Google AI Studio</a> to get started.</p>
+<blockquote>
+<p>NOTE: Gemini API might be still rolling to some regions. See the <a href="https://ai.google.dev/available_regions">available regions</a> for details.</p>
+</blockquote>
+<ul>
+<li>To use Google Gemini API in K8sGPT, obtain <a href="https://ai.google.dev/tutorials/setup">the API key</a>.</li>
+<li>To configure Google backend in K8sGPT with <code>gemini-pro</code> model (see all <a href="https://ai.google.dev/models">models</a> here) use auth command:
+    <code>bash
+    k8sgpt auth add --backend googlevertexai --model gemini-pro --password "&lt;Your API KEY&gt;"</code></li>
+<li>Run the following command to analyze issues within your cluster with the Google provider:
+    <code>bash
+    k8sgpt analyze --explain --backend google</code></li>
+</ul>
+<h2 id="google-gemini-via-vertex-ai">Google Gemini via Vertex AI</h2>
+<p>Google <a href="https://blog.google/technology/ai/google-gemini-ai/#performance">Gemini</a> allows generative AI capabilities with multimodal approach (it is capable to understand not only text, but also code, audio, image and video). </p>
+<ul>
+<li>To use <a href="https://cloud.google.com/vertex-ai?#build-with-gemini">Google Vertex AI</a> you need to be authorized via <a href="https://cloud.google.com/sdk/install">Google Cloud SDK</a>. 
+    The <a href="https://console.cloud.google.com/apis/library/vertex-ai.googleapis.com">Vertex AI API</a> needs to be enabled.</li>
+</ul>
+<blockquote>
+<p>Note: Vertex AI Gemini API is currently available in these <a href="https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini?hl=de#http_request">regions</a>, verify if those are working for your environment</p>
+</blockquote>
+<ul>
+<li>
+<p>Open a terminal or command prompt and run the following command to authenticate using your Google Cloud credentials:
+    <code>bash
+    gcloud auth application-default login</code></p>
+</li>
+<li>
+<p>To configure Google backend in K8sGPT with <code>gemini-pro</code> model (see all <a href="https://ai.google.dev/models">models</a> here) use auth command:
+    <code>bash
+    k8sgpt auth add --backend googlevertexai --model "gemini-pro" --providerRegion "us-central1" --providerId "&lt;your project id&gt;"</code></p>
+</li>
+<li>Run the following command to analyze issues within your cluster with the Google provider:
+    <code>bash
+    k8sgpt analyze --explain --backend googlevertexai</code> </li>
+</ul>
+<h2 id="huggingface">HuggingFace</h2>
+<p>Hugging Face is a versatile backend for K8sGPT, offering access to a wide range of pre-trained language models. It provides easy-to-use interfaces for both training and inference tasks. Refer to the Hugging Face <a href="https://huggingface.co/docs">documentation</a> for further insights into model usage and capabilities.</p>
+<ul>
+<li>To use Hugging Face API in K8sGPT, obtain <a href="https://huggingface.co/settings/tokens">the API key</a>.</li>
+<li>
+<p>Configure the HuggingFace backend in K8sGPT by specifying the desired model (see all <a href="https://huggingface.co/models">models</a> here) using auth command:
+    <code>bash
+    k8sgpt auth add --backend huggingface --model &lt;model name&gt;</code></p>
+<blockquote>
+<p>NOTE: Since the default gpt-4o-mini model is not available in Hugging Face, a valid backend model is required.</p>
+</blockquote>
+</li>
+<li>
+<p>Once configured, you can analyze issues within your cluster using the Hugging Face provider with the following command:
+    <code>bash
+    k8sgpt analyze --explain --backend huggingface</code></p>
+</li>
+</ul>
+<h2 id="ibm-watsonxai">IBM watsonx.ai</h2>
+<p>IBM® watsonx.ai™ AI studio is part of the IBM watsonx™ AI and data platform, bringing together new generative AI (gen AI) capabilities powered by foundation models and traditional machine learning (ML) into a powerful studio spanning the AI lifecycle. Tune and guide models with your enterprise data to meet your needs with easy-to-use tools for building and refining performant prompts. With watsonx.ai, you can build AI applications in a fraction of the time and with a fraction of the data. </p>
+<ul>
+<li>
+<p>To use <a href="https://dataplatform.cloud.ibm.com/login?context=wx">IBM watsonx.ai</a>, you'll need a watsonx API key and project ID for authentication.</p>
+</li>
+<li>
+<p>You will need to set the follow local environmental variables:
+    ```</p>
+<ul>
+<li>WATSONX_API_KEY</li>
+<li>WATSONX_PROJECT_ID
+```</li>
+</ul>
+</li>
+<li>To configure backend in K8sGPT use auth command:
+    <code>bash
+    k8sgpt auth add --backend watsonxai --model ibm/granite-13b-chat-v2</code></li>
+<li>Run the following command to analyze issues within your cluster using IBM watsonx.ai:
+    <code>bash
+    k8sgpt analyze --explain --backend watsonxai</code></li>
+</ul>
+<h2 id="localai">LocalAI</h2>
+<p>LocalAI is a local model, which is an OpenAI compatible API. It uses llama.cpp and ggml to run inference on consumer-grade hardware. Models supported by LocalAI for instance are Vicuna, Alpaca, LLaMA, Cerebras, GPT4ALL, GPT4ALL-J and koala.</p>
+<ul>
+<li>To run local inference, you need to download the models first, for instance you can find <code>ggml</code> compatible models in <a href="https://huggingface.co/models?search=ggml">huggingface.com</a>(for example vicuna, alpaca and koala).</li>
+<li>To start the API server, follow the instruction in <a href="https://github.com/go-skynet/LocalAI#example-use-gpt4all-j-model">LocalAI</a>.</li>
+<li>Authenticate K8sGPT with LocalAI:
+    <code>bash
+    k8sgpt auth add --backend localai --model &lt;model_name&gt; --baseurl http://localhost:8080/v1</code></li>
+<li>Analyze with a LocalAI backend:
+    <code>bash
+    k8sgpt analyze --explain --backend localai</code></li>
+</ul>
+<h2 id="ollama-via-localai-backend">Ollama (via LocalAI backend)</h2>
+<p>Ollama is a local model, which has an OpenAI compatible API. It supports the models listed in the <a href="https://ollama.com/library">Ollama library</a>. </p>
+<ul>
+<li>To start the API server, follow the instruction in the <a href="https://github.com/ollama/ollama?tab=readme-ov-file#quickstart">Ollama docs</a>.</li>
+<li>Authenticate K8sGPT with LocalAI:
+    <code>bash
+    k8sgpt auth add --backend localai --model &lt;model_name&gt; --baseurl http://localhost:11434</code></li>
+<li>Analyze with a LocalAI backend:
+    <code>bash
+    k8sgpt analyze --explain --backend localai</code></li>
+</ul>
+<h2 id="ollama">Ollama</h2>
+<p>Ollama can get up and running locally with large language models. It runs Llama 2, Code Llama, and other models.</p>
+<ul>
+<li>
+<p>To start the Ollama server, follow the instruction in <a href="https://github.com/ollama/ollama?tab=readme-ov-file#start-ollama">Ollama</a>.
+    <code>bash
+    ollama serve</code>
+  It can also run as an docker image, follow the instruction in <a href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama BLog</a>
+    <code>bash
+    docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code></p>
+</li>
+<li>
+<p>Authenticate K8sGPT with Ollama:
+    <code>bash
+    k8sgpt auth add --backend ollama --model llama2 --baseurl http://localhost:11434</code></p>
+</li>
+<li>Analyze with a Ollama backend:
+    <code>bash
+    k8sgpt analyze --explain --backend ollama</code></li>
+</ul>
+<h2 id="fakeai">FakeAI</h2>
+<p>FakeAI or the NoOpAiProvider might be useful in situations where you need to test a new feature or simulate the behaviour of an AI based-system without actually invoking it. It can help you with local development, testing and troubleshooting.
+The NoOpAiProvider does not actually perform any AI-based operations but simulates them by echoing the input given as a problem.</p>
+<p>Follow the steps outlined below to learn how to utilize the NoOpAiProvider:</p>
+<ul>
+<li>Authorize k8sgpt with <code>noopai</code> or <code>noop</code> as the Backend Provider:
+    <code>k8sgpt auth add -b noopai</code></li>
+<li>
+<p>For the auth token, you can leave it blank as the NoOpAiProvider is configured to work fine with or without any token.</p>
+</li>
+<li>
+<p>Use the analyze and explain command to check for errors in your kubernetes cluster and the NoOpAiProvider should return the error as the solution itself:
+    <code>k8sgpt analyze --explain --backend noopai</code></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
