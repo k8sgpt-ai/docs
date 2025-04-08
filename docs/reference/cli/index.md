@@ -87,7 +87,7 @@ k8sgpt serve
 
 _Analysis with GRPC serve mode_
 ```
-grpcurl -plaintext localhost:8080 schema.v1.ServerService/Analyze
+grpcurl -plaintext localhost:8080 schema.v1.ServerAnalyzerService/Analyze
 ```
 
 _Serve mode with GRPC and non-default backend (amazonbedrock)_
@@ -98,7 +98,7 @@ k8sgpt serve -b amazonbedrock
 
 _Analysis with GRPC serve mode and non-default backend (amazonbedrock)_
 ```
-grpcurl -plaintext -d '{"explain": true, "backend": "amazonbedrock"}' localhost:8080 schema.v1.ServerService/Analyze
+grpcurl -plaintext -d '{"explain": true, "backend": "amazonbedrock"}' localhost:8080 schema.v1.ServerAnalyzerService/Analyze
 ```
 
 _Serve mode with REST API_
