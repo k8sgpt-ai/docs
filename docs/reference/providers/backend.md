@@ -2,7 +2,7 @@
 
 A Backend (also called Provider) is a service that provides access to the AI language model. There are many different backends available for K8sGPT. Each backend has its own strengths and weaknesses, so it is important to choose the one that is right for your needs.
 
-Currently, we have a total of 11 backends available:
+K8sGPT ships 20 backends. The [AI backend support tiers](backend-tiers.md) page lists every backend, its support tier, and its named community maintainer. The sections below cover the backends with dedicated setup instructions.
 
 - [OpenAI](https://openai.com/)
 - [Cohere](https://cohere.com/)
