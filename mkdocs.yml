@@ -17,6 +17,7 @@ nav:
       - Overview: tutorials/index.md
       - Content Collection: tutorials/content-collection/content-collection.md
       - K8sGPT Playground: tutorials/playground.md
+      - Local Test Cluster: tutorials/local-test-cluster.md
       - Custom Analyzers: tutorials/custom-analyzers.md
       - Slack Integration: tutorials/slack-integration.md
       - Observability: tutorials/observability.md
